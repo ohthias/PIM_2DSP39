@@ -1,28 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+  <meta charset="UTF-8">
+  <title>{{ title or "Portal Universitário" }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <main>
-        <section>
-            <h1>Portal Acadêmico</h1>
-            <p>Seja bem-vindo ao seu hub universitário! Insira as suas crendênciais</p>
-            <form>
-                <div>
-                    <label class="form-label" for="ra">RA</label>
-                    <input class="form-input" type="text" id="ra" name="ra" />
-                </div>
-                <div>
-                    <label class="form-label" for="password">Senha</label>
-                    <input class="form-input" type="password" id="password" name="password" />
-                </div>
-                <button type="submit" class="button-submit-form">Entrar</button>
-            </form>
-        </section>
-    </main>
+  <nav>
+    {% if 'user' in session %}
+      <strong>{{ session['user'] }}</strong> ({{ session['role']|capitalize }}) |
+      <a href="{{ url_for('dashboard') }}">Dashboard</a> |
+      <a href="{{ url_for('logout') }}">Sair</a>
+    {% else %}
+      <a href="{{ url_for('login') }}">Login</a> |
+      <a href="{{ url_for('register') }}">Registrar</a>
+    {% endif %}
+  </nav>
+
+  <main>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% for category, msg in messages %}
+        <div class="alert {{ category }}">{{ msg }}</div>
+      {% endfor %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </main>
 </body>
 </html>

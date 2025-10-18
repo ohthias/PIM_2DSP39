@@ -1,0 +1,19 @@
+{% extends "index.html" %}
+{% block content %}
+<h2>Registrar Novo Usuário</h2>
+<form method="POST">
+  <input type="text" name="fullname" placeholder="Nome Completo" required><br>
+  <input type="email" name="email" placeholder="Email Institucional" required><br>
+  <input type="password" name="password" placeholder="Senha" required><br>
+
+  <label for="role">Selecione seu papel:</label><br>
+  <select name="role" required>
+    <option value="student">Estudante</option>
+    <option value="professor">Professor</option>
+    <option value="admin">Administrador</option>
+  </select><br><br>
+
+  <button type="submit">Registrar</button>
+</form>
+<p>Já possui uma conta? <a href="{{ url_for('login') }}">Faça login</a></p>
+{% endblock %}
