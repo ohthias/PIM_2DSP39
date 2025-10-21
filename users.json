@@ -1,0 +1,5 @@
+ [
+       {"nome": "Alice", "turma": "Turma A", "id": 1},
+       {"nome": "Bob", "turma": "Turma B", "id": 2},
+       {"nome": "Charlie", "turma": "Turma A", "id": 3}
+     ]
