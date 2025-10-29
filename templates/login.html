@@ -1,10 +1,18 @@
 {% extends "index.html" %}
 {% block content %}
-<h2>Login</h2>
+<link rel="stylesheet" href="/static/css/login.css">
+<h2>INTEC</h2>
+<h3>Instituto Nacional de tecnologia e educação</h3>
 <form method="POST">
-  <input type="email" name="email" placeholder="Email" required><br>
-  <input type="password" name="password" placeholder="Senha" required><br>
-  <button type="submit">Entrar</button>
+  <div>
+    <label for="email">Email</label>
+    <input type="email" name="email" placeholder="Insira seu email" required><br>
+  </div>
+  <div>
+    <label for="password">Senha</label>
+    <input type="password" name="password" placeholder="Senha" required><br>
+  </div>
+    <button class="button-submit-form" type="submit">Entrar</button>
 </form>
 <p>Não tem uma conta? <a href="{{ url_for('register') }}">Cadastre-se</a></p>
 {% endblock %}
