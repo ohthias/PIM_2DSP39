@@ -1,91 +1,184 @@
+/* ======= RESET ======= */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
+/* ======= BODY ======= */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-image: url('/static/image/universitario.png');
+  background-position: 50% 50%;
+  background-size: cover;
+  
+}
+
+/* ======= NAVBAR ======= */
+nav {
+  background-color: #ffffff94; /*Barra SUPERIOR*/
+  padding: 15px 30px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-bottom: 0px solid #ffffff;
+}
+
+nav p {
+  display: block;
+  margin-right: auto;
+  color: #4f5217;       /*Portal de estudos*/
+  font-weight: 700;
+}
+
+
+nav a {
+  color: #4f5217;  /* BOTÃO SUPERIOR LOGIN */
+  text-decoration: none;
+  margin-left: 15px;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #ffffff;
+}
+
+nav strong {
+  margin-right: auto;
+  color: #00aaff;
+  font-weight: 600;
+}
+
+/* ======= MAIN ======= */
 main {
-    width: 100%;
-    height: 100vh !important;
-    display: flex;
-    justify-content: center;
-    background: url("https://images.unsplash.com/photo-1678581231067-644dddeca6dc?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
-    background-repeat: no-repeat;
-    background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
 
-    section {
-        padding: 0 2rem;
-        max-width: 500px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        background: #12121244;
-        backdrop-filter: blur(5px);
+/* ======= ALERTAS ======= */
+.alert {
+  width: 100%;
+  max-width: 400px;
+  padding: 12px 16px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  text-align: center;
+  font-weight: 500;
+}
 
-        h1 {
-            color: #0388A6;
-        }
+.alert.success {
+  background-color: #0f5132;
+  color: #d1e7dd;
+}
 
-        p {
-            margin-bottom: 24px;
-            text-align: center;
-            font-style: italic;
-            color: #f3f3f3;
-        }
-    }
+.alert.error {
+  background-color: #842029;
+  color: #f8d7da;
+}
+
+.alert.warning {
+  background-color: #664d03;
+  color: #fff3cd;
+}
+
+main h1, main h2 {
+  margin-bottom: 20px;
+  font-size: 48px;
+  color: #FFF200;   /*INTEC*/
+}
+
+.Novo-Usuário {
+  color: #c7ecea;    /*Novo Usuário/Registre-se*/
+}
+
+main p {
+  max-width: 600px;
+  text-align: center;
+  line-height: 1.6;
+  color: #ffffff;
 }
 
 form {
-    width: 100%;
-
-    div {
-        margin: 16px 0;
-        display: flex;
-        justify-content: center;
-        align-items: start;
-        flex-direction: column;
-        background: #12121262;
-        padding: 10px 10px;
-        border-radius: 12px;
-        border: 1px solid #121212;
-
-        label.form-label {
-            font-weight: 700;
-            color: #f3f3f3b2;
-            margin-bottom: 4px;
-        }
-
-        input.form-input {
-            padding: 8px 4px;
-            font-size: 16px;
-            width: 100%;
-            background: none;
-            border: 0;
-            border-bottom: 2px solid #f3f3f3;
-            outline: none;
-            transition: 250ms ease-in;
-
-            &:focus {
-                border-color: #0388A6;
-            }
-        }
-    }
+  width: 100%;
+  max-width: 500px;
+  
+  & div {
+    margin: 8px 0;
+  }
 }
 
-.button-submit-form {
-    display: block;
-    margin: 8px auto;
-    padding: 8px 16px;
-    font-size: 16px;
-    border-radius: 50px;
-    cursor: pointer;
-    border: 1px solid #121212;
-    transition: 250ms;
+input {
+  width: 100%;
+  padding: 4px 8px;
+  margin: 4px 0;
+}
 
-    &:hover{
-        background: #121212;
-        color: #f3f3f3;
-    }
+/* ======= BOTÕES GERAIS ======= */
+button, .btn {
+  display: block;
+  margin: 16px auto;
+  background-color: #04a12b; /*ENTRAR*/
+  color: #000000;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: 700;
+}
+
+label{
+  color: #ece9b9;  /* email e senha*/
+}
+a{
+  color:#FFF200;   /*==  cadastre-se==*/
+ transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #ffffff;
+}
+
+h3 {
+  font-size: 25px;
+  color: #c7ecea;
+
+}
+
+button:hover, .btn:hover {
+  background-color: #FFF200;
+}
+
+/* ======= RESPONSIVIDADE ======= */
+@media (max-width: 600px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav a {
+    margin: 5px 0;
+  }
+
+  main {
+    padding: 20px 10px;
+  }
+}
+
+nav img.logo {
+  height: 45px;          /* Tamanho da imagem */
+  margin-right: 20px;    /* Espaço entre a imagem e os links */
+  border-radius: 8px;    /* Arredonda um pouco, opcional */
+  object-fit: cover;     /* Evita distorção */
+}
+
+.Portal, nav a {
+  font-family: sans-serif;
+  font-weight: 700;
 }
