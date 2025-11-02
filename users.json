@@ -1,5 +1,20 @@
- [
-       {"nome": "Alice", "turma": "Turma A", "id": 1},
-       {"nome": "Bob", "turma": "Turma B", "id": 2},
-       {"nome": "Charlie", "turma": "Turma A", "id": 3}
-     ]
+[
+    {
+        "fullname": "fullname",
+        "email": "email",
+        "password": "hashed_password",
+        "role": "role"
+    },
+    {
+        "fullname": "Matheus",
+        "email": "matheus@gmail.com",
+        "password": "scrypt:32768:8:1$UlQVjrfPlkI61rJs$9ef6de614c334ff97316087c3c5d4338f22dea8acf8944d97f7597120970524b57bd288182507c34bb9c32f611f52c2f24191a3d791e5fe8f3b41309aba90f47",
+        "role": "student"
+    },
+    {
+        "fullname": "usu\u00e1rio teste",
+        "email": "test@test",
+        "password": "scrypt:32768:8:1$eNcRMqs6TFkHT2Ri$378bca6ead1a51d4dac6dd0447c7d6f9c7924862441ce6256911249f74a7f07fbb507b7daa82eb5bce8846c35344a26562ae520c83f4f0bdd9fe92982958bf8f",
+        "role": "professor"
+    }
+]

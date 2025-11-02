@@ -1,0 +1,21 @@
+{% extends "index.html" %}
+{% block content %}
+<h2>Bem-vindo(a), {{ user }}!</h2>
+<p>🛠️ Painel do professor</p>
+
+<h3>Usuários Cadastrados:</h3>
+<table border="1" cellpadding="5" style="margin:auto;">
+  <tr>
+    <th>Nome</th>
+    <th>Email</th>
+    <th>Função</th>
+  </tr>
+  {% for u in users %}
+  <tr>
+    <td>{{ u.fullname or u['fullname'] }}</td>
+    <td>{{ u.email or u['email'] }}</td>
+    <td>{{ u.role or u['role'] }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}
