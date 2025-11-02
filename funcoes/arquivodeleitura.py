@@ -7,7 +7,7 @@ def leitura_de_arquivos_em_G(filename, class_name):
     Args:
         filename (str): O nome do arquivo JSON.
         class_name (str): O nome da turma a ser filtrada.
-
+A
     Returns:
         list: Uma lista de dicionários, onde cada dicionário representa um usuário da turma.
               Retorna uma lista vazia se a turma não for encontrada ou o arquivo não existir.

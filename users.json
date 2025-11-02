@@ -16,5 +16,17 @@
         "email": "test@test",
         "password": "scrypt:32768:8:1$eNcRMqs6TFkHT2Ri$378bca6ead1a51d4dac6dd0447c7d6f9c7924862441ce6256911249f74a7f07fbb507b7daa82eb5bce8846c35344a26562ae520c83f4f0bdd9fe92982958bf8f",
         "role": "professor"
+    },
+    {
+        "fullname": "Matheus Gabriel Santos Silva",
+        "email": "matheus.gsilva@aluno.unip.org.br",
+        "password": "scrypt:32768:8:1$7VYn8WmL8B934DDN$1316d65ffbd0747fa63c9c92844767ec067ac39e6530e10753624764b0e1927cde6c9f0cdf0744b67a14b2b5552db4f9c6f65eb25b3b8f7f07cfee9d5c8aac9b",
+        "role": "student"
+    },
+    {
+        "fullname": "Professor",
+        "email": "professor@docente.unip.org.br",
+        "password": "scrypt:32768:8:1$oJAxg51C6zTafggN$5368a87eee09d15cb5c1eaaf9e4cf9a05d33356e9d9d2acd8f3751c1659e24aca981df3ad9696124c504397974b8c17203db0c01ca250e2e362d840362f75ac1",
+        "role": "professor"
     }
 ]

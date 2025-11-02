@@ -1,9 +1,10 @@
 [
     {
-        "nome": "turma A",
-        "ano": "2025",
+        "nome": "ADS_2_1",
+        "professor": "Professor",
+        "email_professor": "professor@docente.unip.org.br",
         "alunos": [
-            "cls ; python -u \"c:\\Users\\caiod\\OneDrive\\Documentos\\GitHub\\PIM_2DSP39\\funcoes\\arquivodeleitura.py\""
+            "matheus.gsilva@aluno.unip.org.br"
         ]
     }
 ]

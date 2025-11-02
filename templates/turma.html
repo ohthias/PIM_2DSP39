@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Turma {{ turma.nome }}</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+    body {
+        background-color: #f3f3f3;
+        min-height: 100vh;
+        font-family: "Segoe UI", sans-serif;
+    }
+    .topbar {
+        background: #fff;
+        padding: 15px 25px;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+        border-radius: 10px;
+        margin-bottom: 25px;
+    }
+    .tabs {
+        display: flex;
+        border-bottom: 2px solid #ddd;
+        margin-bottom: 20px;
+    }
+    .tab {
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 10px 10px 0 0;
+        background-color: #e0e0e0;
+        margin-right: 5px;
+        transition: 0.2s;
+    }
+    .tab.active {
+        background-color: #60a5fa;
+        color: white;
+        font-weight: bold;
+    }
+    .tab-content {
+        display: none;
+    }
+    .tab-content.active {
+        display: block;
+    }
+    .alunos-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 15px;
+    }
+    .card-aluno {
+        background-color: #fff;
+        border-radius: 15px;
+        padding: 15px;
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        transition: 0.2s;
+    }
+    .card-aluno:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    .avatar {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-bottom: 10px;
+        background-color: #60a5fa;
+        color: white;
+        font-weight: bold;
+        line-height: 60px;
+        font-size: 20px;
+    }
+    .status-online { background-color: #34d399; }
+    .status-offline { background-color: #f87171; }
+    .autocomplete-suggestions {
+        position: absolute;
+        background: #fff;
+        border: 1px solid #ccc;
+        max-height: 200px;
+        overflow-y: auto;
+        width: 100%;
+        z-index: 1000;
+    }
+    .autocomplete-suggestion {
+        padding: 8px;
+        cursor: pointer;
+    }
+    .autocomplete-suggestion:hover {
+        background-color: #f1f1f1;
+    }
+</style>
+</head>
+<body class="p-4">
+
+<div class="topbar d-flex justify-content-between align-items-center mb-4">
+    <h3>Turma: {{ turma.nome }}</h3>
+    <span class="text-muted">Professor: {{ turma.professor }}</span>
+</div>
+
+<!-- Abas -->
+<div class="tabs">
+    <div class="tab active" data-tab="alunosTab">Alunos</div>
+    <div class="tab" data-tab="materiaisTab">Materiais</div>
+    <div class="tab" data-tab="avisosTab">Avisos / Mural</div>
+</div>
+
+<!-- Conteúdo das abas -->
+<div id="alunosTab" class="tab-content active">
+    <div class="mb-3">
+        {% if alunos %}
+            <div class="alunos-container">
+                {% for aluno in alunos %}
+                    <div class="card-aluno">
+                        <div class="avatar {% if aluno.online %}status-online{% else %}status-offline{% endif %}">
+                            {{ aluno.fullname[0]|upper }}
+                        </div>
+                        <strong>{{ aluno.fullname }}</strong>
+                        <p class="text-muted">{{ aluno.email }}</p>
+                        <form action="{{ url_for('remover_aluno') }}" method="POST" class="mb-0">
+                            <input type="hidden" name="turma" value="{{ turma.nome }}">
+                            <input type="hidden" name="aluno_email" value="{{ aluno.email }}">
+                            <button type="submit" class="btn btn-danger btn-sm w-100">Remover</button>
+                        </form>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="text-muted">Nenhum aluno cadastrado nesta turma.</p>
+        {% endif %}
+    </div>
+
+    <!-- Adicionar Aluno -->
+    <div class="card card-tool p-3 mt-4">
+        <h5>Adicionar Aluno</h5>
+        <form id="addAlunoForm" method="POST" action="{{ url_for('adicionar_aluno') }}" class="position-relative">
+            <input type="hidden" name="turma" value="{{ turma.nome }}">
+            <div class="mb-2 position-relative">
+                <input type="text" id="alunoBusca" class="form-control" placeholder="Digite o nome do aluno" autocomplete="off">
+                <div id="autocomplete-list" class="autocomplete-suggestions"></div>
+            </div>
+            <div class="mb-2">
+                <select name="aluno_email" id="alunoSelect" class="form-select" required>
+                    <option value="" selected disabled>Selecione o aluno</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-success btn-sm">Adicionar</button>
+        </form>
+    </div>
+</div>
+
+<div id="materiaisTab" class="tab-content">
+    <div class="card card-tool p-3 mb-3">
+        <h5>Enviar Material para a Turma</h5>
+        <form action="{{ url_for('upload_material') }}" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="turma" value="{{ turma.nome }}">
+            <div class="mb-2">
+                <input type="file" name="arquivo" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-sm">Enviar</button>
+        </form>
+    </div>
+
+    <h5>Materiais Enviados</h5>
+    {% if materiais %}
+        <ul class="list-group">
+            {% for mat in materiais %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    {{ mat.arquivo }}
+                    <a href="{{ url_for('static', filename='materiais/' + mat.arquivo) }}" class="btn btn-sm btn-outline-primary" target="_blank">Abrir</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p class="text-muted">Nenhum material enviado ainda.</p>
+    {% endif %}
+</div>
+
+<div id="avisosTab" class="tab-content">
+    <h5>Mural de Avisos</h5>
+    <form id="formAvisos" method="POST" action="{{ url_for('adicionar_aviso') }}" class="mb-4">
+        <input type="hidden" name="turma" value="{{ turma.nome }}">
+        <div class="mb-2">
+            <input type="text" class="form-control" name="titulo" placeholder="Título do aviso" required>
+        </div>
+        <div class="mb-2">
+            <textarea class="form-control" name="mensagem" rows="3" placeholder="Mensagem do aviso" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-info btn-sm">Publicar Aviso</button>
+    </form>
+
+    {% if avisos %}
+        <ul class="list-group">
+            {% for aviso in avisos %}
+                <li class="list-group-item">
+                    <strong>{{ aviso.titulo }}</strong> - <span class="text-muted">{{ aviso.data }}</span>
+                    <p>{{ aviso.mensagem }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p class="text-muted">Nenhum aviso publicado ainda.</p>
+    {% endif %}
+</div>
+
+<a href="{{ url_for('dashboard') }}" class="btn btn-secondary mt-4">← Voltar ao Dashboard</a>
+
+<script>
+    // Sistema de abas
+    const tabs = document.querySelectorAll('.tab');
+    const contents = document.querySelectorAll('.tab-content');
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            tabs.forEach(t => t.classList.remove('active'));
+            contents.forEach(c => c.classList.remove('active'));
+            tab.classList.add('active');
+            document.getElementById(tab.dataset.tab).classList.add('active');
+        });
+    });
+
+    // Autocomplete de alunos
+    const alunoInput = document.getElementById('alunoBusca');
+    const alunoSelect = document.getElementById('alunoSelect');
+    const autocompleteList = document.getElementById('autocomplete-list');
+
+    alunoInput.addEventListener('input', async () => {
+        const termo = alunoInput.value.trim();
+        if (!termo) { autocompleteList.innerHTML = ''; return; }
+
+        const res = await fetch(`/buscar_alunos?q=${encodeURIComponent(termo)}`);
+        const data = await res.json();
+
+        autocompleteList.innerHTML = '';
+        data.forEach(aluno => {
+            const div = document.createElement('div');
+            div.textContent = aluno.fullname + ' (' + aluno.email + ')';
+            div.classList.add('autocomplete-suggestion');
+            div.addEventListener('click', () => {
+                alunoInput.value = aluno.fullname;
+                alunoSelect.innerHTML = `<option value="${aluno.email}" selected>${aluno.fullname} (${aluno.email})</option>`;
+                autocompleteList.innerHTML = '';
+            });
+            autocompleteList.appendChild(div);
+        });
+    });
+
+    document.addEventListener('click', e => {
+        if (!alunoInput.contains(e.target)) autocompleteList.innerHTML = '';
+    });
+</script>
+</body>
+</html>

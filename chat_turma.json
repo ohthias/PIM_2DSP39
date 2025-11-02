@@ -1,0 +1,27 @@
+[
+    {
+        "turma": "ADS_2_1",
+        "mensagens": [
+            {
+                "id": 1762101816319,
+                "usuario": "Matheus Gabriel Santos Silva",
+                "texto": "asas",
+                "timestamp": "02/11/2025 16:43",
+                "respostas": []
+            },
+            {
+                "id": 1762101819904,
+                "usuario": "Matheus Gabriel Santos Silva",
+                "texto": "asas",
+                "timestamp": "02/11/2025 16:43",
+                "respostas": [
+                    {
+                        "usuario": "Matheus Gabriel Santos Silva",
+                        "texto": "asassa",
+                        "timestamp": "02/11/2025 16:43"
+                    }
+                ]
+            }
+        ]
+    }
+]
