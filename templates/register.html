@@ -7,13 +7,36 @@
   <input type="password" name="password" placeholder="Senha" required><br>
 
   <label for="role">Selecione seu papel:</label><br>
-  <select name="role" required>
+  <select name="role" id="role" required>
     <option value="student">Estudante</option>
     <option value="professor">Professor</option>
     <option value="admin">Administrador</option>
   </select><br><br>
 
+  <div id="curso-container">
+    <label for="curso">Selecione o curso:</label><br>
+    <select name="curso" id="curso" required>
+      <option value="">-- Escolha um curso --</option>
+      {% for c in cursos %}
+        <option value="{{ c.nome }}">{{ c.nome }}</option>
+      {% endfor %}
+    </select><br><br>
+  </div>
+
   <button type="submit">Registrar</button>
 </form>
+
 <p>Já possui uma conta? <a href="{{ url_for('login') }}">Faça login</a></p>
+
+<script>
+  const roleSelect = document.getElementById("role");
+  const cursoContainer = document.getElementById("curso-container");
+
+  function toggleCursoSelect() {
+    cursoContainer.style.display = roleSelect.value === "student" ? "block" : "none";
+  }
+
+  roleSelect.addEventListener("change", toggleCursoSelect);
+  toggleCursoSelect(); // executa na inicialização
+</script>
 {% endblock %}

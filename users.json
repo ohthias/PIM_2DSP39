@@ -34,5 +34,24 @@
         "email": "admin2@unip.com",
         "password": "scrypt:32768:8:1$uZ0XUN1seeMo5SSY$01c723330dbbbb995f4e2a9af5f77485a5ab3e778cc1f1bad989652a3b65fe71ab4fd2b18791326d1e7074f71b3ed00516ba3da4ce910803eb278b55af9a5d2b",
         "role": "admin"
+    },
+    {
+        "fullname": "Aluno 1",
+        "email": "aluno1@unip.com",
+        "password": "scrypt:32768:8:1$8Qw7Dd0l7sKj3UPM$ca07b8ddbc5dc6c6ce97584e2ffe6e2c342006ad7d4b0c70d6d7e5465d9a9faf8ae003902b8f8a04f812b24ee9de81f94e5b578096b52ba6351429c0ba1abf73",
+        "role": "student",
+        "curso": "Análise e Desenvolvimento de Sistemas",
+        "periodo_atual": 1,
+        "matricula": "AN1943",
+        "notas": {
+            "Lógica de Programação": {
+                "NP1": null,
+                "NP2": null
+            },
+            "Matemática Aplicada": {
+                "NP1": null,
+                "NP2": null
+            }
+        }
     }
 ]

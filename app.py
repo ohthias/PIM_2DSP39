@@ -65,6 +65,13 @@ def load_cursos():
 def save_cursos(cursos):
     save_json(CURSOS_FILE, cursos)
 
+import random
+
+def gerar_matricula(curso_nome, periodo):
+    """Gera uma matrícula lógica do tipo CU0XXX"""
+    prefixo = curso_nome[:2].upper()  # pega as 2 primeiras letras do curso
+    numero_random = random.randint(100, 999)
+    return f"{prefixo}{int(periodo)}{numero_random}"
 
 # -------------------- Rotas principais --------------------
 @app.route("/")
@@ -74,6 +81,8 @@ def home():
 # --- Registro e Login --- #
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    cursos = load_cursos()  # carrega todos os cursos disponíveis
+
     if request.method == "POST":
         fullname = request.form["fullname"]
         email = request.form["email"]
@@ -92,13 +101,41 @@ def register():
             "password": hashed_password,
             "role": role
         }
+
+        # Se for estudante, adiciona curso e estrutura de notas
+        if role == "student":
+            curso_nome = request.form.get("curso")
+            curso = next((c for c in cursos if c["nome"] == curso_nome), None)
+
+            if not curso:
+                flash("Curso inválido.", "danger")
+                return redirect(url_for("register"))
+
+            # ✅ Agora sim podemos acessar curso["materias"]
+            periodo_inicial = "1"
+            materias_periodo = curso["materias"].get(periodo_inicial, [])
+            matricula = gerar_matricula(curso_nome, periodo_inicial)
+
+            # Cria estrutura de notas por matéria
+            notas = {
+                (m["nome"] if isinstance(m, dict) else m): {"NP1": None, "NP2": None}
+                for m in materias_periodo
+            }
+
+            new_user["curso"] = curso_nome
+            new_user["periodo_atual"] = int(periodo_inicial)
+            new_user["matricula"] = matricula
+            new_user["notas"] = notas
+
         users.append(new_user)
         save_users(users)
 
         flash("Registro concluído com sucesso! Faça login.", "success")
         return redirect(url_for("login"))
 
-    return render_template("register.html")
+    # renderiza template com cursos disponíveis
+    return render_template("register.html", cursos=cursos)
+
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -134,15 +171,42 @@ def dashboard():
 
     role = session["role"]
     user = session["user"]
+    email = session["email"]
 
     if role == "student":
+        # Carrega informações
+        users = load_users()
+        current_user = next((u for u in users if u["email"] == email), None)
+
+        if not current_user:
+            flash("Usuário não encontrado.", "danger")
+            return redirect(url_for("logout"))
+
         materiais = load_json(MATERIAIS_FILE)
         turmas = load_json(TURMAS_FILE)
-        minhas_turmas = [t for t in turmas if session["email"] in t["alunos"]]
+        minhas_turmas = [t for t in turmas if email in t["alunos"]]
         materiais_turma = [m for m in materiais if m["turma"] in [t["nome"] for t in minhas_turmas]]
         avisos = [a for a in load_json(AVISOS_FILE) if a["turma"] in [t["nome"] for t in minhas_turmas]]
-        return render_template("dashboard_student.html", user=user, materiais=materiais_turma, minhas_turmas=minhas_turmas, avisos=avisos, email=session["email"])
 
+        # Pega informações do curso, período e matrícula
+        curso = current_user.get("curso")
+        periodo = current_user.get("periodo_atual")
+        matricula = current_user.get("matricula")
+        notas = current_user.get("notas")  # se quiser mostrar notas também
+
+        return render_template(
+            "dashboard_student.html",
+            user=user,
+            materiais=materiais_turma,
+            minhas_turmas=minhas_turmas,
+            avisos=avisos,
+            email=email,
+            curso=curso,
+            periodo=periodo,
+            matricula=matricula,
+            notas=notas
+        )
+        
     elif role == "professor":
         users = load_users()
         turmas = load_json(TURMAS_FILE)

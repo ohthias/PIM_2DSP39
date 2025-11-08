@@ -2,25 +2,33 @@
 {% block content %}
 <div class="container mt-4">
   <h2>Editando: {{ curso.nome }}</h2>
-  <form method="POST" id="form-editar-curso">
+  <form method="POST">
     {% for periodo, materias in curso.materias.items() %}
     <div class="card mb-3">
       <div class="card-header">Período {{ periodo }}</div>
-      <div class="card-body">
-        <div id="materias_{{ periodo }}">
-          {% for m in materias %}
-          <div class="input-group mb-2">
-            <input type="text" name="materias_{{ periodo }}[]" class="form-control materia-input"
-                   placeholder="Nome da matéria" value="{{ m.nome if m is mapping else m }}">
-            <input type="number" name="aulas_{{ periodo }}[]" class="form-control"
-                   placeholder="Qtd. aulas" min="1" value="{{ m.aulas if m is mapping else '' }}">
+      <div class="card-body" id="materias_{{ periodo }}">
+        {% for m in materias %}
+        <div class="row g-2 mb-2 materia-item">
+          <div class="col-md-6">
+            <input type="text" name="materias_{{ periodo }}[]" class="form-control" value="{{ m.nome }}" placeholder="Matéria">
           </div>
-          {% endfor %}
-          <div class="input-group mb-2">
-            <input type="text" name="materias_{{ periodo }}[]" class="form-control materia-input"
-                   placeholder="Nova matéria...">
-            <input type="number" name="aulas_{{ periodo }}[]" class="form-control"
-                   placeholder="Qtd. aulas" min="1">
+          <div class="col-md-3">
+            <input type="number" name="aulas_{{ periodo }}[]" class="form-control" value="{{ m.aulas }}" placeholder="Qtd. aulas">
+          </div>
+          <div class="col-md-3">
+            <input type="text" class="form-control" value="{{ m.matricula }}" readonly>
+          </div>
+        </div>
+        {% endfor %}
+        <div class="row g-2 mb-2 materia-item">
+          <div class="col-md-6">
+            <input type="text" name="materias_{{ periodo }}[]" class="form-control" placeholder="Nova matéria...">
+          </div>
+          <div class="col-md-3">
+            <input type="number" name="aulas_{{ periodo }}[]" class="form-control" placeholder="Qtd. aulas">
+          </div>
+          <div class="col-md-3">
+            <input type="text" class="form-control" placeholder="Gerado automaticamente" readonly>
           </div>
         </div>
       </div>
@@ -31,38 +39,31 @@
 </div>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-  // Função para adicionar campo de matéria dinamicamente
-  function addNovaMateria(input) {
-    const container = input.closest(".card-body").querySelector("div[id^='materias_']");
-    const ultimaLinha = container.lastElementChild;
-    const novoGrupo = ultimaLinha.cloneNode(true);
+document.addEventListener('input', function(e) {
+  if (e.target.matches('input[name^="materias_"]')) {
+    const row = e.target.closest('.materia-item');
+    const container = row.parentNode;
+    const inputs = container.querySelectorAll('input[name^="materias_"]');
+    const lastInput = inputs[inputs.length - 1];
 
-    // Limpa valores dos novos campos
-    novoGrupo.querySelectorAll("input").forEach(inp => inp.value = "");
-
-    container.appendChild(novoGrupo);
-
-    // Reatribui o listener ao novo input
-    novoGrupo.querySelector(".materia-input").addEventListener("input", handleMateriaInput);
-  }
-
-  // Listener que detecta se o campo foi preenchido
-  function handleMateriaInput(event) {
-    const input = event.target;
-    const container = input.closest("div[id^='materias_']");
-    const inputs = container.querySelectorAll(".materia-input");
-    const ultimo = inputs[inputs.length - 1];
-
-    if (input === ultimo && input.value.trim() !== "") {
-      addNovaMateria(input);
+    if (lastInput.value.trim() !== '') {
+      const periodo = container.id.split('_')[1];
+      const newRow = document.createElement('div');
+      newRow.className = 'row g-2 mb-2 materia-item';
+      newRow.innerHTML = `
+        <div class="col-md-6">
+          <input type="text" name="materias_${periodo}[]" class="form-control" placeholder="Nova matéria...">
+        </div>
+        <div class="col-md-3">
+          <input type="number" name="aulas_${periodo}[]" class="form-control" placeholder="Qtd. aulas">
+        </div>
+        <div class="col-md-3">
+          <input type="text" class="form-control" placeholder="Gerado automaticamente" readonly>
+        </div>
+      `;
+      container.appendChild(newRow);
     }
   }
-
-  // Ativa o evento para todos os inputs existentes
-  document.querySelectorAll(".materia-input").forEach(input => {
-    input.addEventListener("input", handleMateriaInput);
-  });
 });
 </script>
 {% endblock %}
