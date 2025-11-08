@@ -8,6 +8,8 @@ app = Flask(__name__)
 app.secret_key = "supersecretkey"
 app.permanent_session_lifetime = timedelta(minutes=30)
 
+pesos = {"NP1": 0.4, "NP2": 0.6}
+
 # -------------------- Arquivos --------------------
 USERS_FILE = "data/users.json"
 TURMAS_FILE = "data/turmas.json"
@@ -78,6 +80,19 @@ def gerar_matricula(curso_nome, periodo):
     prefixo = curso_nome[:2].upper()  # pega as 2 primeiras letras do curso
     numero_random = random.randint(100, 999)
     return f"{prefixo}{int(periodo)}{numero_random}"
+
+# -------------------- Função para analisar o nome da turma --------------------
+def parse_turma_nome(turma_nome):
+    partes = turma_nome.split('-')
+    if len(partes) >= 3:
+        curso = '-'.join(partes[:-2])
+        materia = partes[-2]
+        periodo_str = partes[-1]
+        if periodo_str.startswith('P') and periodo_str[1:].isdigit():
+            periodo = int(periodo_str[1:])
+            return curso, materia, periodo
+    return None, None, None
+
 
 # -------------------- Rotas principais --------------------
 @app.route("/")
@@ -198,8 +213,8 @@ def dashboard():
         curso = current_user.get("curso")
         periodo = current_user.get("periodo_atual")
         matricula = current_user.get("matricula")
-        notas = current_user.get("notas")  # se quiser mostrar notas também
-
+        notas = current_user.get("notas", {})
+        
         return render_template(
             "dashboard_student.html",
             user=user,
@@ -274,18 +289,17 @@ def turma(nome):
     avisos_turma = [a for a in avisos if a["turma"] == turma["nome"]]
     avisos_turma = sorted(avisos_turma, key=lambda x: x["data"], reverse=True)
 
-    # Diário da turma (para exibir registros na aba)
+    # Diário da turma
     diario = load_diario()
     registro_turma = next((d for d in diario if d["turma"] == nome), {"turma": nome, "registros": []})
 
     # Calcular aulas disponíveis (baseado na matéria da turma)
     def parse_turma_nome(turma_nome):
-        # Exemplo: "Análise e Desenvolvimento de Sistemas-Lógica de Programação-P1"
         partes = turma_nome.split('-')
         if len(partes) >= 3:
-            curso = '-'.join(partes[:-2])  # Junta tudo exceto as últimas duas partes
-            materia = partes[-2]  # Penúltima parte é a matéria
-            periodo_str = partes[-1]  # Última parte é "P1", "P2", etc.
+            curso = '-'.join(partes[:-2])
+            materia = partes[-2]
+            periodo_str = partes[-1]
             if periodo_str.startswith('P') and periodo_str[1:].isdigit():
                 periodo = int(periodo_str[1:])
                 return curso, materia, periodo
@@ -300,7 +314,16 @@ def turma(nome):
             materia = next((m for m in curso["materias"].get(str(periodo), []) if m["nome"] == materia_nome), None)
             if materia:
                 aulas_totais = materia["aulas"]
-                aulas = [f"Aula {i}" for i in range(1, aulas_totais + 1)]  # Lista de aulas disponíveis
+                aulas = [f"Aula {i}" for i in range(1, aulas_totais + 1)]
+
+    # Notas dos alunos
+    notas = {}
+    for aluno in alunos:
+        todas_notas = aluno.get("notas", {})
+        notas_disciplina = todas_notas.get(materia_nome, {})
+        notas[aluno["email"]] = notas_disciplina
+
+    pesos = turma.get("pesos", {"NP1": 0.4, "NP2": 0.6})
 
     return render_template(
         "turma.html",
@@ -308,10 +331,12 @@ def turma(nome):
         alunos=alunos,
         materiais=materiais_turma,
         avisos=avisos_turma,
-        registros=registro_turma["registros"],  # Passa os registros do diário
-        aulas=aulas  # Passa a lista de aulas para o template
+        registros=registro_turma["registros"],
+        aulas=aulas,
+        pesos=pesos,
+        notas=notas,
     )
-    
+
 @app.route("/buscar_alunos")
 def buscar_alunos():
     """Busca de alunos pelo nome (para professores adicionarem em turmas)."""
@@ -633,6 +658,62 @@ def editar_diario(nome, registro_id):
     else:
         flash("Selecione a aula e preencha o conteúdo.", "warning")
     return redirect(url_for("diario_turma", nome=nome))
+
+# -------------------- Lançamento de Notas --------------------
+@app.route("/turma/<nome>/notas", methods=["GET", "POST"])
+def notas_turma(nome):
+    if "user" not in session or session["role"] != "professor":
+        flash("Acesso restrito aos professores.", "danger")
+        return redirect(url_for("dashboard"))
+
+    turmas = load_json(TURMAS_FILE)
+    turma = next((t for t in turmas if t["nome"] == nome), None)
+    if not turma:
+        flash("Turma não encontrada.", "danger")
+        return redirect(url_for("dashboard"))
+
+    users = load_users()
+    alunos = [u for u in users if u["email"] in turma["alunos"]]
+
+    # Notas da disciplina da turma
+    curso_nome, materia_nome, periodo = parse_turma_nome(nome)
+    notas = {}
+    for aluno in alunos:
+        todas_notas = aluno.get("notas", {})
+        notas_disciplina = todas_notas.get(materia_nome, {})
+        notas[aluno["email"]] = notas_disciplina
+
+    pesos = turma.get("pesos", {"NP1": 0.4, "NP2": 0.6})
+
+    if request.method == "POST":
+        for aluno in alunos:
+            np1 = request.form.get(f"nota_{aluno['email']}_NP1")
+            np2 = request.form.get(f"nota_{aluno['email']}_NP2")
+            try:
+                np1_val = float(np1) if np1 else 0
+                np2_val = float(np2) if np2 else 0
+            except ValueError:
+                np1_val = np2_val = 0
+
+            if "notas" not in aluno:
+                aluno["notas"] = {}
+            if materia_nome not in aluno["notas"]:
+                aluno["notas"][materia_nome] = {}
+            aluno["notas"][materia_nome]["NP1"] = np1_val
+            aluno["notas"][materia_nome]["NP2"] = np2_val
+
+        save_users(users)
+        flash("Notas atualizadas com sucesso!", "success")
+        return redirect(url_for("notas_turma", nome=nome))
+
+    return render_template(
+        "turma.html",
+        turma=turma,
+        alunos=alunos,
+        pesos=pesos,
+        notas=notas,
+        tab_active="notasTab"
+    )
 
 # -------------------- Cursos --------------------
 

@@ -4,8 +4,7 @@
         "professor": "Professor",
         "email_professor": "professor@docente.unip.org.br",
         "alunos": [
-            "aluno1@unip.com",
-            "matheus.gsilva@aluno.unip.org.br"
+            "aluno1@unip.com"
         ]
     },
     {

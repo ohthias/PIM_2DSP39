@@ -17,9 +17,7 @@
       class="topbar d-flex flex-wrap justify-content-between align-items-center mb-4"
     >
       <div class="topbar-left d-flex align-items-center gap-2">
-        <a href="{{ url_for('dashboard') }}" class="btn btn-back">
-          ← Voltar
-        </a>
+        <a href="{{ url_for('dashboard') }}" class="btn btn-back"> ← Voltar </a>
       </div>
       <h3 class="turma-title mb-0">{{ turma.nome }}</h3>
     </div>
@@ -29,6 +27,7 @@
       <div class="tab active" data-tab="alunosTab">Alunos</div>
       <div class="tab" data-tab="materiaisTab">Materiais</div>
       <div class="tab" data-tab="avisosTab">Avisos / Mural</div>
+      <div class="tab" data-tab="notasTab">Notas</div>
       <div class="tab" data-tab="diarioTab">Diário de Classe</div>
     </div>
 
@@ -169,6 +168,61 @@
       </ul>
       {% else %}
       <p class="text-muted">Nenhum aviso publicado ainda.</p>
+      {% endif %}
+    </div>
+
+    <div id="notasTab" class="tab-content">
+      {% if alunos %}
+      <h3>Notas dos alunos</h3>
+      <form
+        method="POST"
+        action="{{ url_for('notas_turma', nome=turma.nome) }}"
+      >
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Aluno</th>
+              <th>Matrícula</th>
+              <th>NP1 ({{ pesos['NP1'] * 100 }}%)</th>
+              <th>NP2 ({{ pesos['NP2'] * 100 }}%)</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for aluno in alunos %}
+            <tr>
+              <td>{{ aluno.fullname }}</td>
+              <td>{{ aluno.matricula }}</td>
+              <td>
+                <input
+                  type="number"
+                  class="form-control"
+                  value="{{ notas[aluno.email].get('NP1', 0) }}"
+                  name="nota_{{ aluno.email }}_NP1"
+                  max="10"
+                  step="0.01"
+                />
+              </td>
+              <td>
+                <input
+                  type="number"
+                  class="form-control"
+                  value="{{ notas[aluno.email].get('NP2', 0) }}"
+                  name="nota_{{ aluno.email }}_NP2"
+                  max="10"
+                  step="0.01"
+                />
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+
+        <button type="submit" class="btn btn-primary btn-sm">
+          Salvar Notas
+        </button>
+      </form>
+      {% else %}
+      <p class="text-muted">Nenhum aluno cadastrado nesta turma.</p>
       {% endif %}
     </div>
 

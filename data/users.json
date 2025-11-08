@@ -1,27 +1,9 @@
 [
     {
-        "fullname": "fullname",
-        "email": "email",
-        "password": "hashed_password",
-        "role": "role"
-    },
-    {
-        "fullname": "Matheus",
-        "email": "matheus@gmail.com",
-        "password": "scrypt:32768:8:1$UlQVjrfPlkI61rJs$9ef6de614c334ff97316087c3c5d4338f22dea8acf8944d97f7597120970524b57bd288182507c34bb9c32f611f52c2f24191a3d791e5fe8f3b41309aba90f47",
-        "role": "student"
-    },
-    {
         "fullname": "usuário teste",
         "email": "test@test",
         "password": "scrypt:32768:8:1$eNcRMqs6TFkHT2Ri$378bca6ead1a51d4dac6dd0447c7d6f9c7924862441ce6256911249f74a7f07fbb507b7daa82eb5bce8846c35344a26562ae520c83f4f0bdd9fe92982958bf8f",
         "role": "professor"
-    },
-    {
-        "fullname": "Matheus Gabriel Santos Silva",
-        "email": "matheus.gsilva@aluno.unip.org.br",
-        "password": "scrypt:32768:8:1$7VYn8WmL8B934DDN$1316d65ffbd0747fa63c9c92844767ec067ac39e6530e10753624764b0e1927cde6c9f0cdf0744b67a14b2b5552db4f9c6f65eb25b3b8f7f07cfee9d5c8aac9b",
-        "role": "student"
     },
     {
         "fullname": "Professor",
@@ -45,12 +27,12 @@
         "matricula": "AN1943",
         "notas": {
             "Lógica de Programação": {
-                "NP1": null,
-                "NP2": null
+                "NP1": 10.0,
+                "NP2": 5.6
             },
             "Matemática Aplicada": {
-                "NP1": null,
-                "NP2": null
+                "NP1": 0,
+                "NP2": 0
             }
         }
     }
