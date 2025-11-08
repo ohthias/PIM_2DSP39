@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, session, f
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import timedelta
 import json, os
+import random
 
 app = Flask(__name__)
 app.secret_key = "supersecretkey"
@@ -13,6 +14,7 @@ TURMAS_FILE = "data/turmas.json"
 MATERIAIS_FILE = "data/materiais.json"
 AVISOS_FILE = "data/avisos.json"
 CHAT_TURMA_FILE = "data/chat_turma.json"
+DIARIO_FILE = "data/diario_turma.json"
 CURSOS_FILE = "data/cursos.json"
 UPLOAD_FOLDER = "static/materiais"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
@@ -64,8 +66,12 @@ def load_cursos():
 
 def save_cursos(cursos):
     save_json(CURSOS_FILE, cursos)
+    
+def load_diario():
+    return load_json(DIARIO_FILE)
 
-import random
+def save_diario(diario):
+    save_json(DIARIO_FILE, diario)
 
 def gerar_matricula(curso_nome, periodo):
     """Gera uma matrícula lógica do tipo CU0XXX"""
@@ -268,14 +274,44 @@ def turma(nome):
     avisos_turma = [a for a in avisos if a["turma"] == turma["nome"]]
     avisos_turma = sorted(avisos_turma, key=lambda x: x["data"], reverse=True)
 
+    # Diário da turma (para exibir registros na aba)
+    diario = load_diario()
+    registro_turma = next((d for d in diario if d["turma"] == nome), {"turma": nome, "registros": []})
+
+    # Calcular aulas disponíveis (baseado na matéria da turma)
+    def parse_turma_nome(turma_nome):
+        # Exemplo: "Análise e Desenvolvimento de Sistemas-Lógica de Programação-P1"
+        partes = turma_nome.split('-')
+        if len(partes) >= 3:
+            curso = '-'.join(partes[:-2])  # Junta tudo exceto as últimas duas partes
+            materia = partes[-2]  # Penúltima parte é a matéria
+            periodo_str = partes[-1]  # Última parte é "P1", "P2", etc.
+            if periodo_str.startswith('P') and periodo_str[1:].isdigit():
+                periodo = int(periodo_str[1:])
+                return curso, materia, periodo
+        return None, None, None
+
+    curso_nome, materia_nome, periodo = parse_turma_nome(nome)
+    aulas = []
+    if curso_nome and materia_nome and periodo is not None:
+        cursos = load_cursos()
+        curso = next((c for c in cursos if c["nome"] == curso_nome), None)
+        if curso:
+            materia = next((m for m in curso["materias"].get(str(periodo), []) if m["nome"] == materia_nome), None)
+            if materia:
+                aulas_totais = materia["aulas"]
+                aulas = [f"Aula {i}" for i in range(1, aulas_totais + 1)]  # Lista de aulas disponíveis
+
     return render_template(
         "turma.html",
         turma=turma,
         alunos=alunos,
         materiais=materiais_turma,
-        avisos=avisos_turma
+        avisos=avisos_turma,
+        registros=registro_turma["registros"],  # Passa os registros do diário
+        aulas=aulas  # Passa a lista de aulas para o template
     )
-
+    
 @app.route("/buscar_alunos")
 def buscar_alunos():
     """Busca de alunos pelo nome (para professores adicionarem em turmas)."""
@@ -498,6 +534,105 @@ def chat_responder():
     mensagem["respostas"].append(resposta)
     save_chat_turma(chat)
     return jsonify(resposta)
+
+# -------------------- Diário da Turma --------------------
+@app.route("/turma/<nome>/diario", methods=["GET", "POST"])
+def diario_turma(nome):
+    if "user" not in session or session["role"] != "professor":
+        flash("Acesso restrito aos professores.", "danger")
+        return redirect(url_for("dashboard"))
+
+    turmas = load_json(TURMAS_FILE)
+    turma = next((t for t in turmas if t["nome"] == nome), None)
+    if not turma:
+        flash("Turma não encontrada.", "danger")
+        return redirect(url_for("dashboard"))
+
+    # Função para parsear o nome da turma e extrair curso, matéria e período
+    def parse_turma_nome(turma_nome):
+        partes = turma_nome.split('-')
+        if len(partes) >= 3:
+            curso = '-'.join(partes[:-2])  # Junta tudo exceto as últimas duas partes
+            materia = partes[-2]  # Penúltima parte é a matéria
+            periodo_str = partes[-1]  # Última parte é "P1", "P2", etc.
+            if periodo_str.startswith('P') and periodo_str[1:].isdigit():
+                periodo = int(periodo_str[1:])
+                return curso, materia, periodo
+        return None, None, None
+
+    curso_nome, materia_nome, periodo = parse_turma_nome(nome)
+    if not curso_nome or not materia_nome or periodo is None:
+        flash("Nome da turma inválido. Não foi possível identificar a matéria.", "danger")
+        return redirect(url_for("dashboard"))
+
+    cursos = load_cursos()
+    curso = next((c for c in cursos if c["nome"] == curso_nome), None)
+    if not curso:
+        flash("Curso associado à turma não encontrado.", "danger")
+        return redirect(url_for("dashboard"))
+
+    materia = next((m for m in curso["materias"].get(str(periodo), []) if m["nome"] == materia_nome), None)
+    if not materia:
+        flash("Matéria da turma não encontrada no curso.", "danger")
+        return redirect(url_for("dashboard"))
+
+    aulas_totais = materia["aulas"]
+    aulas = [f"Aula {i}" for i in range(1, aulas_totais + 1)]  # Lista de aulas disponíveis
+
+    diario = load_diario()
+    registro_turma = next((d for d in diario if d["turma"] == nome), {"turma": nome, "registros": []})
+
+    if request.method == "POST":
+        aula = request.form["aula"]
+        conteudo = request.form["conteudo"].strip()
+        if aula and conteudo:
+            from datetime import datetime
+            novo_registro = {
+                "id": int(datetime.now().timestamp()*1000),
+                "aula": aula,
+                "conteudo": conteudo,
+                "data": datetime.now().strftime("%d/%m/%Y %H:%M")
+            }
+            registro_turma["registros"].append(novo_registro)
+            # Atualiza ou adiciona ao diário
+            diario = [d for d in diario if d["turma"] != nome] + [registro_turma]
+            save_diario(diario)
+            flash("Registro do diário salvo com sucesso!", "success")
+            return redirect(url_for("diario_turma", nome=nome))
+        else:
+            flash("Selecione a aula e preencha o conteúdo do registro.", "warning")
+
+
+    return render_template("turma.html", turma=turma, registros=registro_turma["registros"], aulas=aulas)
+
+@app.route("/turma/<nome>/diario/editar/<int:registro_id>", methods=["POST"])
+def editar_diario(nome, registro_id):
+    if "user" not in session or session["role"] != "professor":
+        flash("Acesso restrito aos professores.", "danger")
+        return redirect(url_for("dashboard"))
+    diario = load_diario()
+    registro_turma = next((d for d in diario if d["turma"] == nome), None)
+    if not registro_turma:
+        flash("Turma não encontrada no diário.", "danger")
+        return redirect(url_for("diario_turma", nome=nome))
+    registro = next((r for r in registro_turma["registros"] if r["id"] == registro_id), None)
+    if not registro:
+        flash("Registro não encontrado.", "danger")
+        return redirect(url_for("diario_turma", nome=nome))
+    # Atualiza os campos editáveis (aula e conteúdo)
+    aula = request.form.get("aula")
+    conteudo = request.form.get("conteudo", "").strip()
+    if aula and conteudo:
+        registro["aula"] = aula
+        registro["conteudo"] = conteudo
+        # Opcional: atualizar a data para refletir a edição
+        from datetime import datetime
+        registro["data"] = datetime.now().strftime("%d/%m/%Y %H:%M") + " (editado)"
+        save_diario(diario)
+        flash("Registro editado com sucesso!", "success")
+    else:
+        flash("Selecione a aula e preencha o conteúdo.", "warning")
+    return redirect(url_for("diario_turma", nome=nome))
 
 # -------------------- Cursos --------------------
 

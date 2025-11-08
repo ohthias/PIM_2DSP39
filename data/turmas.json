@@ -1,13 +1,5 @@
 [
     {
-        "nome": "ADS_2_1",
-        "professor": "Professor",
-        "email_professor": "professor@docente.unip.org.br",
-        "alunos": [
-            "matheus.gsilva@aluno.unip.org.br"
-        ]
-    },
-    {
         "nome": "Análise e Desenvolvimento de Sistemas-Lógica de Programação-P1",
         "professor": "Professor",
         "email_professor": "professor@docente.unip.org.br",
