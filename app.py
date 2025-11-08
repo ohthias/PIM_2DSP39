@@ -3,6 +3,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import timedelta
 import json, os
 import random
+from utils import calcular_media_c
 
 app = Flask(__name__)
 app.secret_key = "supersecretkey"
@@ -132,7 +133,6 @@ def register():
                 flash("Curso inválido.", "danger")
                 return redirect(url_for("register"))
 
-            # ✅ Agora sim podemos acessar curso["materias"]
             periodo_inicial = "1"
             materias_periodo = curso["materias"].get(periodo_inicial, [])
             matricula = gerar_matricula(curso_nome, periodo_inicial)
@@ -701,6 +701,9 @@ def notas_turma(nome):
                 aluno["notas"][materia_nome] = {}
             aluno["notas"][materia_nome]["NP1"] = np1_val
             aluno["notas"][materia_nome]["NP2"] = np2_val
+            aluno["notas"][materia_nome]["media"] = calcular_media_c(
+                np1_val, np2_val, pesos["NP1"], pesos["NP2"]
+            )
 
         save_users(users)
         flash("Notas atualizadas com sucesso!", "success")
