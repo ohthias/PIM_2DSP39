@@ -1,187 +1,206 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Painel do Professor</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: #f4f6f8;
-            display: flex;
-            height: 100vh;
-            overflow: hidden;
-        }
-        .sidebar {
-            width: 250px;
-            background-color: #1e293b;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            padding: 20px;
-        }
-        .sidebar h4 {
-            text-align: center;
-            margin-bottom: 30px;
-            color: #60a5fa;
-        }
-        .sidebar a {
-            color: #cbd5e1;
-            text-decoration: none;
-            padding: 10px;
-            border-radius: 8px;
-            transition: 0.2s;
-        }
-        .sidebar a:hover, .sidebar a.active {
-            background-color: #334155;
-            color: #fff;
-        }
-        .content {
-            flex: 1;
-            padding: 30px;
-            overflow-y: auto;
-        }
-        .card-tool {
-            transition: 0.2s;
-            border: none;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .card-tool:hover {
-            transform: translateY(-4px);
-        }
-        .topbar {
-            background: #fff;
-            padding: 15px 25px;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-            border-radius: 10px;
-            margin-bottom: 25px;
-        }
-    </style>
-</head>
-<body>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="{{ url_for('static', filename='css/dashboard_professor.css') }}"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <!-- Menu lateral -->
     <div class="sidebar">
-        <h4>Professor</h4>
-        <a href="#" class="active" id="btnDashboard">🏠 Início</a>
-        <a href="#" id="btnTurmas">📘 Minhas Turmas</a>
-        <a href="#" id="btnCriarTurma">➕ Criar Turma</a>
-        <a href="#" id="btnInserirConteudo">🧩 Inserir Conteúdo</a>
-        <a href="{{ url_for('logout') }}">🚪 Sair</a>
+      <h4>INTEC</h4>
+      <a href="#" class="active" id="btnDashboard"
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-6 w-6 h-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z"
+          />
+        </svg>
+        Início</a
+      >
+      <a href="#" id="btnTurmas"
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z"
+          />
+        </svg>
+        Minhas Turmas</a
+      >
+      <a href="#" id="btnCriarTurma"
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M12 4.5v15m7.5-7.5h-15"
+          />
+        </svg>
+        Criar Turma</a
+      >
+      <a href="{{ url_for('logout') }}"
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M8.25 9V5.25A2.25 2.25 0 0 1 10.5 3h6a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 16.5 21h-6a2.25 2.25 0 0 1-2.25-2.25V15m-3 0-3-3m0 0 3-3m-3 3H15"
+          />
+        </svg>
+        Sair</a
+      >
     </div>
 
     <!-- Conteúdo principal -->
     <div class="content">
-        <div class="topbar d-flex justify-content-between align-items-center">
-            <h3>Bem-vindo(a), {{ user }}</h3>
-            <span class="text-muted">Painel de Professor</span>
+      <div
+        class="topbar d-flex flex-wrap justify-content-between align-items-center mb-4"
+      >
+        <div class="topbar-left d-flex align-items-center gap-2">
+          <h3 class="turma-title mb-0">Bem-vindo(a), {{ user }}</h3>
         </div>
-
-        <!-- Seções dinâmicas -->
-        <div id="sectionDashboard">
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <div class="card card-tool p-3">
-                        <h5>📘 Minhas Turmas</h5>
-                        <p>Gerencie as turmas que você criou, visualize e edite conteúdos.</p>
-                        <button class="btn btn-primary btn-sm" id="goTurmas">Acessar</button>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card card-tool p-3">
-                        <h5>➕ Criar Turma</h5>
-                        <p>Crie novas turmas e adicione alunos diretamente do sistema.</p>
-                        <button class="btn btn-success btn-sm" id="goCriarTurma">Criar</button>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card card-tool p-3">
-                        <h5>🧩 Inserir Conteúdo</h5>
-                        <p>Adicione materiais, exercícios e projetos para seus alunos.</p>
-                        <button class="btn btn-info btn-sm" id="goInserirConteudo">Inserir</button>
-                    </div>
-                </div>
+        <div class="topbar-right mt-2 mt-md-0">
+          <span class="professor-label">Painel de Professor</span>
+        </div>
+      </div>
+      <!-- Seções dinâmicas -->
+      <div id="sectionDashboard">
+        <div class="row">
+          <div class="col-md-4 mb-4">
+            <div class="card card-tool p-3">
+              <h5>📘 Minhas Turmas</h5>
+              <p>
+                Gerencie as turmas que você criou, visualize e edite conteúdos.
+              </p>
+              <button class="btn btn-primary btn-sm" id="goTurmas">
+                Acessar
+              </button>
             </div>
-        </div>
-
-        <!-- Minhas turmas -->
-        <div id="sectionTurmas" class="d-none">
-            <h4 class="mb-3">📘 Minhas Turmas</h4>
-            <div id="listaTurmas">
-                {% if minhas_turmas %}
-                    <ul class="list-group">
-    {% for turma in minhas_turmas %}
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-            <span><strong>{{ turma.nome }}</strong> — {{ turma.alunos|length }} alunos</span>
-            <a href="{{ url_for('turma', nome=turma.nome) }}" class="btn btn-outline-primary btn-sm">Abrir</a>
-        </li>
-    {% endfor %}
-</ul>
-                {% else %}
-                    <p>Nenhuma turma cadastrada ainda.</p>
-                {% endif %}
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card card-tool p-3">
+              <h5>➕ Criar Turma</h5>
+              <p>Crie novas turmas e adicione alunos diretamente do sistema.</p>
+              <button class="btn btn-success btn-sm" id="goCriarTurma">
+                Criar
+              </button>
             </div>
+          </div>
         </div>
+      </div>
 
-        <!-- Criar Turma -->
-        <div id="sectionCriarTurma" class="d-none">
-            <h4 class="mb-3">➕ Criar Nova Turma</h4>
-            <form method="POST" action="{{ url_for('criar_turma') }}">
-                <div class="mb-3">
-                    <label for="nomeTurma" class="form-label">Nome da Turma</label>
-                    <input type="text" class="form-control" id="nomeTurma" name="nome" required>
-                </div>
-                <button type="submit" class="btn btn-success">Criar</button>
-            </form>
+      <!-- Minhas turmas -->
+      <div id="sectionTurmas" class="d-none">
+        <h4 class="mb-3">📘 Minhas Turmas</h4>
+        <div id="listaTurmas">
+          {% if minhas_turmas %}
+          <ul class="list-group">
+            {% for turma in minhas_turmas %}
+            <li
+              class="list-group-item d-flex justify-content-between align-items-center"
+            >
+              <span
+                ><strong>{{ turma.nome }}</strong> — {{ turma.alunos|length }}
+                alunos</span
+              >
+              <a
+                href="{{ url_for('turma', nome=turma.nome) }}"
+                class="btn btn-outline-primary btn-sm"
+                >Abrir</a
+              >
+            </li>
+            {% endfor %}
+          </ul>
+          {% else %}
+          <p>Nenhuma turma cadastrada ainda.</p>
+          {% endif %}
         </div>
+      </div>
 
-        <!-- Inserir Conteúdo -->
-        <div id="sectionInserirConteudo" class="d-none">
-            <h4 class="mb-3">🧩 Inserir Conteúdo</h4>
-            <form>
-                <div class="mb-3">
-                    <label class="form-label">Selecionar Turma</label>
-                    <select class="form-select">
-                        <option selected disabled>Escolha uma turma...</option>
-                        {% for turma in minhas_turmas %}
-                            <option>{{ turma.nome }}</option>
-                        {% endfor %}
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Título do Conteúdo</label>
-                    <input type="text" class="form-control">
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Descrição</label>
-                    <textarea class="form-control" rows="3"></textarea>
-                </div>
-                <button class="btn btn-primary">Adicionar</button>
-            </form>
-        </div>
+      <!-- Criar Turma -->
+      <div id="sectionCriarTurma" class="d-none">
+        <h4 class="mb-3">➕ Criar Nova Turma</h4>
+        <form method="POST" action="{{ url_for('criar_turma') }}">
+          <div class="mb-3">
+            <label for="nomeTurma" class="form-label">Nome da Turma</label>
+            <input
+              type="text"
+              class="form-control"
+              id="nomeTurma"
+              name="nome"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-success">Criar</button>
+        </form>
+      </div>
     </div>
 
     <script>
-        // Alternar seções
-        const sections = {
-            btnDashboard: "sectionDashboard",
-            btnTurmas: "sectionTurmas",
-            btnCriarTurma: "sectionCriarTurma",
-            btnInserirConteudo: "sectionInserirConteudo"
-        };
+      // Alternar seções
+      const sections = {
+        btnDashboard: "sectionDashboard",
+        btnTurmas: "sectionTurmas",
+        btnCriarTurma: "sectionCriarTurma",
+        btnInserirConteudo: "sectionInserirConteudo",
+      };
 
-        Object.keys(sections).forEach(btn => {
-            document.getElementById(btn)?.addEventListener("click", () => {
-                document.querySelectorAll(".content > div[id^='section']").forEach(sec => sec.classList.add("d-none"));
-                document.getElementById(sections[btn]).classList.remove("d-none");
+      Object.keys(sections).forEach((btn) => {
+        document.getElementById(btn)?.addEventListener("click", () => {
+          document
+            .querySelectorAll(".content > div[id^='section']")
+            .forEach((sec) => sec.classList.add("d-none"));
+          document.getElementById(sections[btn]).classList.remove("d-none");
 
-                document.querySelectorAll(".sidebar a").forEach(a => a.classList.remove("active"));
-                document.getElementById(btn).classList.add("active");
-            });
+          document
+            .querySelectorAll(".sidebar a")
+            .forEach((a) => a.classList.remove("active"));
+          document.getElementById(btn).classList.add("active");
         });
+      });
 
-        // Atalhos nos cards
-        document.getElementById("goTurmas").onclick = () => document.getElementById("btnTurmas").click();
-        document.getElementById("goCriarTurma").onclick = () => document.getElementById("btnCriarTurma").click();
-        document.getElementById("goInserirConteudo").onclick = () => document.getElementById("btnInserirConteudo").click();
+      // Atalhos nos cards
+      document.getElementById("goTurmas").onclick = () =>
+        document.getElementById("btnTurmas").click();
+      document.getElementById("goCriarTurma").onclick = () =>
+        document.getElementById("btnCriarTurma").click();
+      document.getElementById("goInserirConteudo").onclick = () =>
+        document.getElementById("btnInserirConteudo").click();
     </script>
-</body>
+  </body>
 </html>

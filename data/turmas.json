@@ -1,0 +1,28 @@
+[
+    {
+        "nome": "Análise e Desenvolvimento de Sistemas-Lógica de Programação-P1",
+        "professor": "Professor",
+        "email_professor": "professor@docente.unip.org.br",
+        "alunos": [
+            "aluno1@unip.com"
+        ]
+    },
+    {
+        "nome": "Análise e Desenvolvimento de Sistemas-Banco de Dados-P2",
+        "professor": "Professor",
+        "email_professor": "professor@docente.unip.org.br",
+        "alunos": []
+    },
+    {
+        "nome": "Análise e Desenvolvimento de Sistemas-Engenharia de Software-P3",
+        "professor": "Professor",
+        "email_professor": "professor@docente.unip.org.br",
+        "alunos": []
+    },
+    {
+        "nome": "Análise e Desenvolvimento de Sistemas-Segurança da Informação-P4",
+        "professor": "Professor",
+        "email_professor": "professor@docente.unip.org.br",
+        "alunos": []
+    }
+]

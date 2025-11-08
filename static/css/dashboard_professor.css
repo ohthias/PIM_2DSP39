@@ -1,0 +1,164 @@
+/* Paleta de cores */
+:root {
+  --azul-escuro: #0d1f3c;
+  --azul-claro: #1e3a8a;
+  --amarelo: #ffc107;
+  --branco: #ffffff;
+  --cinza-claro: #f8f9fa;
+  --cinza-medio: #e9ecef;
+  --cinza-escuro: #6b7280;
+  --verde: #198754;
+  --vermelho: #dc3545;
+}
+
+svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Corpo */
+body {
+  background-color: var(--branco);
+  font-family: "Segoe UI", sans-serif;
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  color: var(--azul-escuro);
+}
+
+/* Sidebar */
+.sidebar {
+  width: 240px;
+  background-color: var(--cinza-claro);
+  color: var(--cinza-escuro);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  flex-shrink: 0;
+}
+.sidebar h4 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: var(--cinza-escuro);
+  font-weight: 700;
+}
+.sidebar a {
+  color: var(--cinza-escuro);
+  text-decoration: none;
+  padding: 10px 12px;
+  border-radius: 8px;
+  margin-bottom: 6px;
+  font-weight: 500;
+  transition: all 0.2s;
+  display: block;
+}
+.sidebar a.active, .sidebar a:hover {
+  background-color: var(--cinza-escuro);
+  color: var(--amarelo);
+}
+
+/* Conteúdo principal */
+.content {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+}
+
+/* Topbar */
+.topbar {
+  background: var(--branco);
+  padding: 12px 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.turma-title {
+  font-size: 1.5rem;
+  color: var(--azul-escuro);
+  font-weight: 600;
+}
+.professor-label {
+  font-size: 0.95rem;
+  color: var(--cinza-escuro);
+}
+
+/* Cards */
+.card-tool {
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  transition: all 0.2s;
+  padding: 20px;
+  border: none;
+  background-color: var(--branco);
+}
+.card-tool:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+.card-tool h5 {
+  color: var(--azul-escuro);
+  margin-bottom: 10px;
+}
+.card-tool p {
+  color: var(--cinza-escuro);
+  font-size: 0.95rem;
+}
+
+/* Botões */
+.btn {
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-weight: 500;
+  border: none;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.btn-sm {
+  padding: 4px 10px;
+}
+.btn-primary { background-color: var(--azul-escuro); color: var(--amarelo); }
+.btn-primary:hover { background-color: var(--azul-claro); color: var(--branco); }
+.btn-success { background-color: var(--verde); color: var(--branco); }
+.btn-success:hover { background-color: #117a33; }
+.btn-info { background-color: var(--amarelo); color: var(--azul-escuro); }
+.btn-info:hover { background-color: #e6b800; color: var(--branco); }
+
+/* Inputs e Selects */
+.form-control, .form-select, .form-textarea {
+  border-radius: 8px;
+  border: 1px solid var(--cinza-medio);
+  padding: 8px;
+  width: 100%;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+}
+.form-control:focus, .form-select:focus, .form-textarea:focus {
+  border-color: var(--azul-claro);
+  box-shadow: 0 0 0 2px rgba(30, 58, 138, 0.2);
+  outline: none;
+}
+
+/* Lista de turmas */
+.list-group-item {
+  border-radius: 10px;
+  margin-bottom: 10px;
+  border: 1px solid var(--cinza-medio);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--cinza-medio);
+}
+.list-group-item strong { color: var(--azul-escuro); }
+
+/* Responsividade */
+@media (max-width: 768px) {
+  body { flex-direction: column; }
+  .sidebar { width: 100%; flex-direction: row; overflow-x: auto; padding: 10px; }
+  .sidebar a { margin-bottom: 0; margin-right: 8px; }
+  .content { padding: 20px; }
+  .topbar { flex-direction: column; align-items: flex-start; }
+}
