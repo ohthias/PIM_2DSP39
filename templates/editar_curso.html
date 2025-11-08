@@ -4,35 +4,54 @@
   <h2>Editando: {{ curso.nome }}</h2>
   <form method="POST">
     {% for periodo, materias in curso.materias.items() %}
-    <div class="card mb-3">
-      <div class="card-header">Período {{ periodo }}</div>
-      <div class="card-body" id="materias_{{ periodo }}">
-        {% for m in materias %}
-        <div class="row g-2 mb-2 materia-item">
-          <div class="col-md-6">
-            <input type="text" name="materias_{{ periodo }}[]" class="form-control" value="{{ m.nome }}" placeholder="Matéria">
+      <div class="card mb-3">
+        <div class="card-header">Período {{ periodo }}</div>
+        <div class="card-body" id="materias_{{ periodo }}">
+          {% for m in materias %}
+          <div class="row g-2 mb-2 materia-item">
+            <div class="col-md-4">
+              <input type="text" name="materias_{{ periodo }}[]" class="form-control" value="{{ m.nome }}" placeholder="Matéria">
+            </div>
+            <div class="col-md-2">
+              <input type="number" name="aulas_{{ periodo }}[]" class="form-control" value="{{ m.aulas }}" placeholder="Qtd. aulas">
+            </div>
+            <div class="col-md-4">
+              <select name="professores_{{ periodo }}[]" class="form-select">
+                <option value="">Escolher professor</option>
+                {% for u in professores %}
+                <option value="{{ u.email }}" {% if m.professor == u.email %}selected{% endif %}>
+                  {{ u.fullname }}
+                </option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="col-md-2">
+              <input type="text" class="form-control" placeholder="Gerado automaticamente" readonly>
+            </div>
           </div>
-          <div class="col-md-3">
-            <input type="number" name="aulas_{{ periodo }}[]" class="form-control" value="{{ m.aulas }}" placeholder="Qtd. aulas">
-          </div>
-          <div class="col-md-3">
-            <input type="text" class="form-control" value="{{ m.matricula }}" readonly>
-          </div>
-        </div>
-        {% endfor %}
-        <div class="row g-2 mb-2 materia-item">
-          <div class="col-md-6">
-            <input type="text" name="materias_{{ periodo }}[]" class="form-control" placeholder="Nova matéria...">
-          </div>
-          <div class="col-md-3">
-            <input type="number" name="aulas_{{ periodo }}[]" class="form-control" placeholder="Qtd. aulas">
-          </div>
-          <div class="col-md-3">
-            <input type="text" class="form-control" placeholder="Gerado automaticamente" readonly>
+          {% endfor %}
+          <!-- Linha para nova matéria -->
+          <div class="row g-2 mb-2 materia-item">
+            <div class="col-md-4">
+              <input type="text" name="materias_{{ periodo }}[]" class="form-control" placeholder="Nova matéria...">
+            </div>
+            <div class="col-md-2">
+              <input type="number" name="aulas_{{ periodo }}[]" class="form-control" placeholder="Qtd. aulas">
+            </div>
+            <div class="col-md-4">
+              <select name="professores_{{ periodo }}[]" class="form-select">
+                <option value="">Escolher professor</option>
+                {% for u in professores %}
+                <option value="{{ u.email }}">{{ u.fullname }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="col-md-2">
+              <input type="text" class="form-control" placeholder="Gerado automaticamente" readonly>
+            </div>
           </div>
         </div>
       </div>
-    </div>
     {% endfor %}
     <button type="submit" class="btn btn-success">Salvar Alterações</button>
   </form>

@@ -8,13 +8,13 @@ app.secret_key = "supersecretkey"
 app.permanent_session_lifetime = timedelta(minutes=30)
 
 # -------------------- Arquivos --------------------
-USERS_FILE = "users.json"
-TURMAS_FILE = "turmas.json"
-MATERIAIS_FILE = "materiais.json"
+USERS_FILE = "data/users.json"
+TURMAS_FILE = "data/turmas.json"
+MATERIAIS_FILE = "data/materiais.json"
+AVISOS_FILE = "data/avisos.json"
+CHAT_TURMA_FILE = "data/chat_turma.json"
+CURSOS_FILE = "data/cursos.json"
 UPLOAD_FOLDER = "static/materiais"
-AVISOS_FILE = "avisos.json"
-CHAT_TURMA_FILE = "chat_turma.json"
-CURSOS_FILE = "cursos.json"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 # -------------------- Funções utilitárias --------------------
@@ -215,7 +215,7 @@ def dashboard():
 
     elif role == "admin":
         users = load_users()
-        return render_template("dashboard_admin.html", user=user, users=users)
+        return render_template(url_for("cursos"))
 
     else:
         flash("Função desconhecida. Contate o administrador.", "danger")
@@ -548,24 +548,51 @@ def editar_curso(nome):
 
     cursos = load_cursos()
     curso = next((c for c in cursos if c["nome"] == nome), None)
+    users = load_users()
+    professores = [u for u in users if u["role"] == "professor"]
+    
     if not curso:
         flash("Curso não encontrado.", "danger")
         return redirect(url_for("listar_cursos"))
 
     if request.method == "POST":
+        users = load_users()
+        turmas = load_json(TURMAS_FILE)
         for i in range(1, curso["periodos"] + 1):
             materias = request.form.getlist(f"materias_{i}[]")
-            quantidadeAulas = request.form.getlist(f"aulas_{i}[]")
-            curso["materias"][str(i)] = [
-                {"nome": m, "aulas": int(aula) if aula.strip() else 0}
-                for m, aula in zip(materias, quantidadeAulas)
-                if m.strip()
-            ]
+            aulas = request.form.getlist(f"aulas_{i}[]")
+            professores_email = request.form.getlist(f"professores_{i}[]")
+
+            curso["materias"][str(i)] = []
+            for m, a, p_email in zip(materias, aulas, professores_email):
+                if m.strip():
+                    curso["materias"][str(i)].append({
+                        "nome": m.strip(),
+                        "aulas": int(a) if a.strip() else 0,
+                        "professor": p_email
+                    })
+
+                    # Criar turma automaticamente
+                    if p_email:
+                        turma_nome = f"{curso['nome']}-{m.strip()}-P{i}"
+                        if not any(t["nome"] == turma_nome for t in turmas):
+                            # Pega estudantes do curso e período
+                            alunos = [u["email"] for u in users
+                                    if u.get("curso") == curso["nome"]
+                                    and u.get("periodo_atual") == i]
+                            turmas.append({
+                                "nome": turma_nome,
+                                "professor": next((u["fullname"] for u in users if u["email"] == p_email), ""),
+                                "email_professor": p_email,
+                                "alunos": alunos
+                            })
+
         save_cursos(cursos)
-        flash("Curso atualizado com sucesso!", "success")
+        save_json(TURMAS_FILE, turmas)
+        flash("Curso e turmas atualizados com sucesso!", "success")
         return redirect(url_for("listar_cursos"))
 
-    return render_template("editar_curso.html", curso=curso)
+    return render_template("editar_curso.html", curso=curso, professores=professores)
 
 
 @app.route("/cursos/<nome>/deletar", methods=["POST"])

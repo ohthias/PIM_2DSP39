@@ -1,0 +1,36 @@
+[
+    {
+        "nome": "Análise e Desenvolvimento de Sistemas",
+        "periodos": 4,
+        "materias": {
+            "1": [
+                {
+                    "nome": "Lógica de Programação",
+                    "aulas": 10,
+                    "professor": "professor@docente.unip.org.br"
+                }
+            ],
+            "2": [
+                {
+                    "nome": "Banco de Dados",
+                    "aulas": 10,
+                    "professor": "professor@docente.unip.org.br"
+                }
+            ],
+            "3": [
+                {
+                    "nome": "Engenharia de Software",
+                    "aulas": 10,
+                    "professor": "professor@docente.unip.org.br"
+                }
+            ],
+            "4": [
+                {
+                    "nome": "Segurança da Informação",
+                    "aulas": 10,
+                    "professor": "professor@docente.unip.org.br"
+                }
+            ]
+        }
+    }
+]
