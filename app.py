@@ -221,7 +221,7 @@ def dashboard():
 
     elif role == "admin":
         users = load_users()
-        return render_template(url_for("cursos"))
+        return render_template("dashboard_admin.html", cursos=load_cursos(), users=users, professores=[u for u in users if u["role"] == "professor"])
 
     else:
         flash("Função desconhecida. Contate o administrador.", "danger")
