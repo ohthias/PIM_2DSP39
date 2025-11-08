@@ -1,0 +1,37 @@
+{% extends "index.html" %}
+{% block content %}
+<div class="container mt-4">
+  <h2>{{ "Editando: " + curso.nome if curso else "Criar Novo Curso" }}</h2>
+
+  <form method="POST">
+    {% if curso %}
+      {% for periodo, materias in curso.materias.items() %}
+        <div class="card mb-3">
+          <div class="card-header">Período {{ periodo }}</div>
+          <div class="card-body">
+            <div id="materias_{{ periodo }}">
+              {% for m in materias %}
+                <input type="text" name="materias_{{ periodo }}[]" class="form-control mb-2" value="{{ m }}">
+              {% endfor %}
+              <input type="text" name="materias_{{ periodo }}[]" class="form-control mb-2" placeholder="Nova matéria...">
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <div class="mb-3">
+        <label for="nome" class="form-label">Nome do Curso</label>
+        <input type="text" class="form-control" id="nome" name="nome" required>
+      </div>
+      <div class="mb-3">
+        <label for="periodos" class="form-label">Quantidade de Períodos</label>
+        <input type="number" class="form-control" id="periodos" name="periodos" min="1" required>
+      </div>
+    {% endif %}
+
+    <button type="submit" class="btn btn-success">
+      {{ "Salvar Alterações" if curso else "Criar Curso" }}
+    </button>
+  </form>
+</div>
+{% endblock %}

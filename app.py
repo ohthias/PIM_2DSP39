@@ -14,6 +14,7 @@ MATERIAIS_FILE = "materiais.json"
 UPLOAD_FOLDER = "static/materiais"
 AVISOS_FILE = "avisos.json"
 CHAT_TURMA_FILE = "chat_turma.json"
+CURSOS_FILE = "cursos.json"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 # -------------------- Funções utilitárias --------------------
@@ -57,6 +58,13 @@ def load_chat_turma():
 
 def save_chat_turma(chat):
     save_json(CHAT_TURMA_FILE, chat)
+    
+def load_cursos():
+    return load_json(CURSOS_FILE)
+
+def save_cursos(cursos):
+    save_json(CURSOS_FILE, cursos)
+
 
 # -------------------- Rotas principais --------------------
 @app.route("/")
@@ -426,6 +434,88 @@ def chat_responder():
     mensagem["respostas"].append(resposta)
     save_chat_turma(chat)
     return jsonify(resposta)
+
+# -------------------- Cursos --------------------
+
+@app.route("/cursos")
+def listar_cursos():
+    if "role" not in session or session["role"] != "admin":
+        flash("Acesso restrito ao administrador.", "danger")
+        return redirect(url_for("dashboard"))
+
+    cursos = load_cursos()
+    return render_template("dashboard_admin.html", cursos=cursos)
+
+
+@app.route("/criar_curso", methods=["GET", "POST"])
+def criar_curso():
+    if "role" not in session or session["role"] != "admin":
+        flash("Acesso restrito ao administrador.", "danger")
+        return redirect(url_for("dashboard"))
+
+    if request.method == "POST":
+        nome = request.form["nome"]
+        periodos = int(request.form["periodos"])
+
+        cursos = load_cursos()
+        if any(c["nome"].lower() == nome.lower() for c in cursos):
+            flash("Já existe um curso com esse nome!", "warning")
+            return redirect(url_for("listar_cursos"))
+
+        novo_curso = {
+            "nome": nome,
+            "periodos": periodos,
+            "materias": {str(i): [] for i in range(1, periodos + 1)}
+        }
+        cursos.append(novo_curso)
+        save_cursos(cursos)
+
+        flash("Curso criado com sucesso!", "success")
+        return redirect(url_for("listar_cursos"))
+
+    return render_template("criar_curso.html", curso=None)
+
+
+@app.route("/cursos/<nome>/editar", methods=["GET", "POST"])
+def editar_curso(nome):
+    if "role" not in session or session["role"] != "admin":
+        flash("Acesso restrito ao administrador.", "danger")
+        return redirect(url_for("dashboard"))
+
+    cursos = load_cursos()
+    curso = next((c for c in cursos if c["nome"] == nome), None)
+    if not curso:
+        flash("Curso não encontrado.", "danger")
+        return redirect(url_for("listar_cursos"))
+
+    if request.method == "POST":
+        for i in range(1, curso["periodos"] + 1):
+            materias = request.form.getlist(f"materias_{i}[]")
+            quantidadeAulas = request.form.getlist(f"aulas_{i}[]")
+            curso["materias"][str(i)] = [
+                {"nome": m, "aulas": int(aula) if aula.strip() else 0}
+                for m, aula in zip(materias, quantidadeAulas)
+                if m.strip()
+            ]
+        save_cursos(cursos)
+        flash("Curso atualizado com sucesso!", "success")
+        return redirect(url_for("listar_cursos"))
+
+    return render_template("editar_curso.html", curso=curso)
+
+
+@app.route("/cursos/<nome>/deletar", methods=["POST"])
+def deletar_curso(nome):
+    if "role" not in session or session["role"] != "admin":
+        flash("Acesso restrito ao administrador.", "danger")
+        return redirect(url_for("dashboard"))
+
+    cursos = load_cursos()
+    cursos = [c for c in cursos if c["nome"] != nome]
+    save_cursos(cursos)
+
+    flash("Curso removido com sucesso!", "success")
+    return redirect(url_for("listar_cursos"))
 
 # -------------------- Rodar servidor --------------------
 if __name__ == "__main__":

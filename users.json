@@ -12,7 +12,7 @@
         "role": "student"
     },
     {
-        "fullname": "usu\u00e1rio teste",
+        "fullname": "usuário teste",
         "email": "test@test",
         "password": "scrypt:32768:8:1$eNcRMqs6TFkHT2Ri$378bca6ead1a51d4dac6dd0447c7d6f9c7924862441ce6256911249f74a7f07fbb507b7daa82eb5bce8846c35344a26562ae520c83f4f0bdd9fe92982958bf8f",
         "role": "professor"
@@ -28,5 +28,11 @@
         "email": "professor@docente.unip.org.br",
         "password": "scrypt:32768:8:1$oJAxg51C6zTafggN$5368a87eee09d15cb5c1eaaf9e4cf9a05d33356e9d9d2acd8f3751c1659e24aca981df3ad9696124c504397974b8c17203db0c01ca250e2e362d840362f75ac1",
         "role": "professor"
+    },
+    {
+        "fullname": "Admin",
+        "email": "admin2@unip.com",
+        "password": "scrypt:32768:8:1$uZ0XUN1seeMo5SSY$01c723330dbbbb995f4e2a9af5f77485a5ab3e778cc1f1bad989652a3b65fe71ab4fd2b18791326d1e7074f71b3ed00516ba3da4ce910803eb278b55af9a5d2b",
+        "role": "admin"
     }
 ]
