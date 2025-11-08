@@ -4,6 +4,7 @@ from datetime import timedelta
 import json, os
 import random
 from utils import calcular_media_c
+from ai_module.adaptive_recommendation import recomendar_estudo
 
 app = Flask(__name__)
 app.secret_key = "supersecretkey"
@@ -93,7 +94,6 @@ def parse_turma_nome(turma_nome):
             periodo = int(periodo_str[1:])
             return curso, materia, periodo
     return None, None, None
-
 
 # -------------------- Rotas principais --------------------
 @app.route("/")
@@ -826,6 +826,28 @@ def deletar_curso(nome):
 
     flash("Curso removido com sucesso!", "success")
     return redirect(url_for("listar_cursos"))
+
+@app.route("/recomendacoes")
+def recomendacoes():
+    if "user" not in session or session["role"] != "student":
+        flash("Acesso restrito a alunos.", "danger")
+        return redirect(url_for("dashboard"))
+
+    email = session["email"]
+    users = load_users()
+    aluno = next((u for u in users if u["email"] == email), None)
+    if not aluno:
+        flash("Aluno não encontrado.", "danger")
+        return redirect(url_for("dashboard"))
+
+    turmas = load_json(TURMAS_FILE)
+    materiais = load_json(MATERIAIS_FILE)
+    pesos = {"NP1": 0.4, "NP2": 0.6}
+
+    recomendados = recomendar_estudo(aluno, turmas, materiais, pesos)
+
+    return render_template("recomendacoes.html", user=aluno["fullname"], recomendados=recomendados)
+
 
 # -------------------- Rodar servidor --------------------
 if __name__ == "__main__":

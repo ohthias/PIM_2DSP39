@@ -32,8 +32,9 @@
                 "media": 8.2
             },
             "Matemática Aplicada": {
-                "NP1": 0,
-                "NP2": 0
+                "NP1": 2.4,
+                "NP2": 6.0,
+                "media": 4.2
             }
         }
     }

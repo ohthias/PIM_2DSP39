@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Recomendações de Estudo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container mt-4">
+      <h2>Olá, {{ user }}! Aqui estão suas recomendações de estudo:</h2>
+      {% if recomendados %}
+      <ul class="list-group mt-3">
+        {% for r in recomendados %}
+        <li class="list-group-item">
+          <strong>{{ r.materia }}</strong> - Turma: {{ r.turma }}<br />
+          Média prevista: <strong>{{ r.media_prevista }}</strong>
+          {% if r.risco_reprovacao %}
+          <span class="badge bg-danger">Risco de reprovação</span>
+          {% endif %} {% if r.aulas_faltantes %}
+          <span class="badge bg-warning"
+            >Aulas faltantes: {{ r.aulas_faltantes|join(', ') }}</span
+          >
+          {% endif %}
+          <br />
+          <a
+            href="{{ url_for('static', filename='materiais/' + r.arquivo) }}"
+            target="_blank"
+            >{{ r.arquivo }}</a
+          >
+        </li>
+        {% endfor %}
+      </ul>
+
+      {% else %}
+      <p>Nenhuma recomendação no momento. Continue acompanhando suas aulas!</p>
+      {% endif %}
+    </div>
+  </body>
+</html>
