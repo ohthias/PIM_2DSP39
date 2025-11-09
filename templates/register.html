@@ -1,42 +1,85 @@
-{% extends "index.html" %}
-{% block content %}
-<h2 class="Novo-Usuário">Registrar Novo Usuário</h2>
-<form method="POST">
-  <input type="text" name="fullname" placeholder="Nome Completo" required><br>
-  <input type="email" name="email" placeholder="Email Institucional" required><br>
-  <input type="password" name="password" placeholder="Senha" required><br>
+{% extends "index.html" %} {% block content %}
+<main class="register-container">
+  <h2 class="Novo-Usuário">Registrar Novo Usuário</h2>
 
-  <label for="role">Selecione seu papel:</label><br>
-  <select name="role" id="role" required>
-    <option value="student">Estudante</option>
-    <option value="professor">Professor</option>
-    <option value="admin">Administrador</option>
-  </select><br><br>
+  <form method="POST" class="register-form">
+    <!-- Nome completo -->
+    <div class="form-group">
+      <label for="fullname">Nome completo</label>
+      <input
+        type="text"
+        id="fullname"
+        name="fullname"
+        placeholder="Ex: Maria da Silva"
+        required
+      />
+    </div>
 
-  <div id="curso-container">
-    <label for="curso">Selecione o curso:</label><br>
-    <select name="curso" id="curso" required>
-      <option value="">-- Escolha um curso --</option>
-      {% for c in cursos %}
+    <!-- Email -->
+    <div class="form-group">
+      <label for="email">E-mail institucional</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Ex: maria@escola.edu.br"
+        required
+      />
+    </div>
+
+    <!-- Senha -->
+    <div class="form-group">
+      <label for="password">Senha</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        placeholder="Digite uma senha segura"
+        required
+      />
+    </div>
+
+    <!-- Papel -->
+    <div class="form-group">
+      <label for="role">Selecione seu papel</label>
+      <select name="role" id="role" required class="role-select">
+        <option value="">-- Escolha uma opção --</option>
+        <option value="student">Estudante</option>
+        <option value="professor">Professor</option>
+        <option value="admin">Administrador</option>
+      </select>
+    </div>
+
+    <!-- Curso (visível apenas se for estudante) -->
+    <div class="form-group" id="curso-container">
+      <label for="curso">Selecione o curso</label>
+      <select name="curso" id="curso" class="curso-select">
+        <option value="">-- Escolha um curso --</option>
+        {% for c in cursos %}
         <option value="{{ c.nome }}">{{ c.nome }}</option>
-      {% endfor %}
-    </select><br><br>
-  </div>
+        {% endfor %}
+      </select>
+    </div>
 
-  <button type="submit">Registrar</button>
-</form>
+    <button type="submit" class="btn">Registrar</button>
+  </form>
 
-<p>Já possui uma conta? <a href="{{ url_for('login') }}">Faça login</a></p>
+  <p class="form-footer">
+    Já possui uma conta?
+    <a href="{{ url_for('login') }}" class="link">Faça login</a>
+  </p>
+</main>
 
 <script>
   const roleSelect = document.getElementById("role");
   const cursoContainer = document.getElementById("curso-container");
 
   function toggleCursoSelect() {
-    cursoContainer.style.display = roleSelect.value === "student" ? "block" : "none";
+    cursoContainer.style.display =
+      roleSelect.value === "student" ? "block" : "none";
   }
 
   roleSelect.addEventListener("change", toggleCursoSelect);
-  toggleCursoSelect(); // executa na inicialização
+  toggleCursoSelect();
 </script>
 {% endblock %}

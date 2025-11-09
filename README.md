@@ -79,6 +79,7 @@ PIM_2DSP39/
 * Python 3.x instalado
 * Pip para instalação de dependências
 * Sistema Windows (se for usar a DLL `.dll`) ou Linux (se usar `.so`)
+* Chave de API do Gemini (para o chatbot acadêmico)
 
 ---
 
@@ -87,7 +88,7 @@ PIM_2DSP39/
 1. Clone o repositório:
 
 ```bash
-git clone <URL_DO_REPOSITORIO>
+git clone <repo_url>
 cd PIM_2DSP39
 ```
 

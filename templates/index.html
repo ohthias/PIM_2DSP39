@@ -7,14 +7,8 @@
 </head>
 <body>
   <nav>
-    {% if 'user' in session %}
-      <strong>{{ session['user'] }}</strong> ({{ session['role']|capitalize }}) |
-      <a href="{{ url_for('dashboard') }}">Dashboard</a> |
-      <a href="{{ url_for('logout') }}">Sair</a>
-    {% else %}
       <p class="Portal">Portal de estudos</p>
       <a href="{{ url_for('login') }}">Login</a>
-    {% endif %}
   </nav>
 
   <main>
