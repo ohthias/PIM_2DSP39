@@ -2,7 +2,7 @@ import ctypes
 import os
 
 # Caminho da biblioteca
-LIB_PATH = os.path.join(os.path.dirname(__file__), "libs", "notas.dll")  # ou .dll no Windows
+LIB_PATH = os.path.join(os.path.dirname(__file__), "../libs", "notas.dll")  # ou .dll no Windows
 
 # Carrega a biblioteca
 lib = ctypes.CDLL(LIB_PATH)

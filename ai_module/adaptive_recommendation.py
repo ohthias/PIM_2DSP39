@@ -1,14 +1,3 @@
-def parse_turma_nome(turma_nome):
-    partes = turma_nome.split('-')
-    if len(partes) >= 3:
-        curso = '-'.join(partes[:-2])
-        materia = partes[-2]
-        periodo_str = partes[-1]
-        if periodo_str.startswith('P') and periodo_str[1:].isdigit():
-            periodo = int(periodo_str[1:])
-            return curso, materia, periodo
-    return None, None, None
-
 def calcular_previsao_nota(notas, pesos={"NP1": 0.4, "NP2": 0.6}, nota_minima=7):
     """
     Calcula a média prevista e indica risco de reprovação.

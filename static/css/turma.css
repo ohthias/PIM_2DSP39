@@ -1,3 +1,17 @@
+:root {
+  --primary-color: #fff200;
+  --secondary-color: #0d1f3c;
+  --accent-color: #1e3a8a;
+  --text-dark: #121212;
+  --text-light: #ffffff;
+  --nav-bg: #0d1f3c;
+  --branco: #ffffff;
+  --cinza-claro: #f8f9fa;
+  --cinza-medio: #e9ecef;
+  --cinza-escuro: #6b7280;
+  --transition: 0.3s ease;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,13 +20,13 @@
 
 body {
   font-family: "Poppins", sans-serif;
-  background-color: #f3f2f1;
+  background-color: var(--cinza-claro);
   margin: 0;
 }
 
 .header {
-  background-color: #6264a7;
-  color: white;
+  background-color: var(--secondary-color);
+  color: var(--branco);
   padding: 15px 30px;
   display: flex;
   justify-content: space-between;
@@ -21,6 +35,10 @@ body {
 
 .header h2 {
   margin: 0;
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px var(--cinza-escuro);
+  color: var(--branco);
 }
 
 .container {
@@ -28,7 +46,7 @@ body {
 }
 
 .turma-info {
-  background-color: #ffffff;
+  background-color: var(--branco);
   padding: 15px 20px;
   border-radius: 8px;
   margin-bottom: 20px;
@@ -36,21 +54,21 @@ body {
 }
 
 .nav-tabs .nav-link {
-  background-color: #ffffff;
-  color: #323130;
+  background-color: var(--cinza-medio);
+  color: var(--text-dark);
   border: none;
   margin-right: 5px;
   border-radius: 6px 6px 0 0;
 }
 
 .nav-tabs .nav-link.active {
-  background-color: #ffffff;
-  color: #6264a7;
-  border-bottom: 3px solid #6264a7;
+  background-color: var(--branco);
+  color: var(--secondary-color);
+  border-bottom: 3px solid var(--secondary-color);
 }
 
 .tab-content {
-  background-color: #ffffff;
+  background-color: var(--branco);
   padding: 20px;
   border-radius: 0 6px 6px 6px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -64,15 +82,15 @@ body {
 }
 
 .btn-download {
-  background-color: #6264a7;
-  color: white;
+  background-color: var(--secondary-color);
+  color: var(--branco);
   border: none;
   border-radius: 4px;
   padding: 4px 8px;
 }
 
 .btn-download:hover {
-  background-color: #4b4f9c;
+  background-color:  var(--accent-color);
 }
 
 .mural {
@@ -101,29 +119,29 @@ body {
   word-wrap: break-word;
 }
 .chat-usuario {
-  background-color: #6264a7;
-  color: white;
+  background-color: var(--cinza-escuro);
+  color: var(--text-dark);
   align-self: flex-start;
 }
 .chat-me {
-  background-color: #e1dfec;
-  color: #323130;
+  background-color: var(--secondary-color);
+  color: var(--text-light);
   align-self: flex-end;
 }
 .chat-resposta {
   margin-left: 20px;
-  border-left: 3px solid #6264a7;
+  border-left: 3px solid var(--accent-color);
   padding-left: 10px;
 }
 .chat-info {
   font-size: 0.75rem;
   margin-top: 2px;
-  color: #555;
+  color: var(--cinza-escuro);
 }
 .responder-btn {
   font-size: 0.75rem;
   cursor: pointer;
-  color: #6264a7;
+  color: var(--text-light);
   background: none;
   border: none;
   padding: 0;

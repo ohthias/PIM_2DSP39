@@ -1040,12 +1040,31 @@
         "matricula": "AN1868",
         "notas": {
             "Lógica de Programação": {
-                "NP1": null,
-                "NP2": null
+                "NP1": 0,
+                "NP2": 0
             },
             "Matemática Discreta": {
-                "NP1": null,
-                "NP2": null
+                "NP1": 0,
+                "NP2": 0
+            }
+        }
+    },
+    {
+        "fullname": "Matheus Gabriel Santos Silva",
+        "email": "matheus.gsilva@unip.com",
+        "password": "scrypt:32768:8:1$uoKYxc0eZNyiJjL5$e4f1544dacd90a9449cbbc5743b25185bf9176d1ea589739fb9b75a9412fdd0e91542b75c059b9fe40ce6972d6bc4c68c850a963e61f50b90e5abbbde7b02bee",
+        "role": "student",
+        "curso": "Análise e Desenvolvimento de Sistemas",
+        "periodo_atual": 1,
+        "matricula": "AN1365",
+        "notas": {
+            "Lógica de Programação": {
+                "NP1": 0,
+                "NP2": 0
+            },
+            "Matemática Discreta": {
+                "NP1": 0,
+                "NP2": 0
             }
         }
     }

@@ -1,18 +1,29 @@
-{% extends "index.html" %}
-{% block content %}
-<link rel="stylesheet" href="/static/css/login.css">
-<h2>INTEC</h2>
-<h3>Instituto Nacional de tecnologia e educação</h3>
-<form method="POST">
-  <div>
-    <label for="email">Email</label>
-    <input type="email" name="email" placeholder="Insira seu email" required><br>
-  </div>
-  <div>
-    <label for="password">Senha</label>
-    <input type="password" name="password" placeholder="Senha" required><br>
-  </div>
+{% extends "index.html" %} {% block content %}
+<link rel="stylesheet" href="/static/css/login.css" />
+<main>
+  <h2>INTEC</h2>
+  <h3>Instituto Nacional de tecnologia e educação</h3>
+  <form method="POST">
+    <div>
+      <label for="email">Email</label>
+      <input
+        type="email"
+        name="email"
+        placeholder="Insira seu email"
+        required
+      /><br />
+    </div>
+    <div>
+      <label for="password">Senha</label>
+      <input
+        type="password"
+        name="password"
+        placeholder="Senha"
+        required
+      /><br />
+    </div>
     <button class="button-submit-form" type="submit">Entrar</button>
-</form>
-<p>Não tem uma conta? <a href="{{ url_for('register') }}">Cadastre-se</a></p>
+  </form>
+  <p class="form-footer">Não tem uma conta? <a href="{{ url_for('register') }}" class="link">Cadastre-se</a></p>
+</main>
 {% endblock %}

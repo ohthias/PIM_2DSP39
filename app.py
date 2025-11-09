@@ -1,21 +1,19 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash, jsonify
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import timedelta
-import json, os
-import random
-from utils import calcular_media_c
-from ai_module.adaptive_recommendation import recomendar_estudo
-from dotenv import load_dotenv
-import google.generativeai as genai
+from ai_module.recommendation import recomendar_materiais
 from ai_routes import ai_blueprint
+from functions.utils import *
+from functions.media import calcular_media_c
+import os
 
-load_dotenv()
-
+# -------------------- Configuração do Flask --------------------
 app = Flask(__name__)
 app.secret_key = "supersecretkey"
 app.permanent_session_lifetime = timedelta(minutes=30)
 app.register_blueprint(ai_blueprint, url_prefix='/ai_module')
 
+# -------------------- Configurações Gerais --------------------
 pesos = {"NP1": 0.4, "NP2": 0.6}
 
 # -------------------- Arquivos --------------------
@@ -28,78 +26,6 @@ DIARIO_FILE = "data/diario_turma.json"
 CURSOS_FILE = "data/cursos.json"
 UPLOAD_FOLDER = "static/materiais"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
-
-# -------------------- Funções utilitárias --------------------
-def load_json(filename):
-    """Lê qualquer arquivo JSON e retorna uma lista ou cria um novo se não existir."""
-    if not os.path.exists(filename):
-        with open(filename, "w", encoding="utf-8") as f:
-            json.dump([], f)
-    with open(filename, "r", encoding="utf-8") as f:
-        try:
-            return json.load(f)
-        except json.JSONDecodeError:
-            return []
-
-def save_json(filename, data):
-    """Salva dados em JSON."""
-    with open(filename, "w", encoding="utf-8") as f:
-        json.dump(data, f, indent=4, ensure_ascii=False)
-
-def load_users():
-    return load_json(USERS_FILE)
-
-def save_users(users):
-    save_json(USERS_FILE, users)
-
-def get_user_by_email(email):
-    users = load_users()
-    for u in users:
-        if u["email"] == email:
-            return u
-    return None
-
-def load_avisos():
-    return load_json(AVISOS_FILE)
-
-def save_avisos(avisos):
-    save_json(AVISOS_FILE, avisos)
-    
-def load_chat_turma():
-    return load_json(CHAT_TURMA_FILE)
-
-def save_chat_turma(chat):
-    save_json(CHAT_TURMA_FILE, chat)
-    
-def load_cursos():
-    return load_json(CURSOS_FILE)
-
-def save_cursos(cursos):
-    save_json(CURSOS_FILE, cursos)
-    
-def load_diario():
-    return load_json(DIARIO_FILE)
-
-def save_diario(diario):
-    save_json(DIARIO_FILE, diario)
-
-def gerar_matricula(curso_nome, periodo):
-    """Gera uma matrícula lógica do tipo CU0XXX"""
-    prefixo = curso_nome[:2].upper()  # pega as 2 primeiras letras do curso
-    numero_random = random.randint(100, 999)
-    return f"{prefixo}{int(periodo)}{numero_random}"
-
-# -------------------- Função para analisar o nome da turma --------------------
-def parse_turma_nome(turma_nome):
-    partes = turma_nome.split('-')
-    if len(partes) >= 3:
-        curso = '-'.join(partes[:-2])
-        materia = partes[-2]
-        periodo_str = partes[-1]
-        if periodo_str.startswith('P') and periodo_str[1:].isdigit():
-            periodo = int(periodo_str[1:])
-            return curso, materia, periodo
-    return None, None, None
 
 # -------------------- Rotas principais --------------------
 @app.route("/")
@@ -145,7 +71,7 @@ def register():
 
             # Cria estrutura de notas por matéria
             notas = {
-                (m["nome"] if isinstance(m, dict) else m): {"NP1": None, "NP2": None}
+                (m["nome"] if isinstance(m, dict) else m): {"NP1": 0, "NP2": 0}
                 for m in materias_periodo
             }
 
@@ -153,9 +79,18 @@ def register():
             new_user["periodo_atual"] = int(periodo_inicial)
             new_user["matricula"] = matricula
             new_user["notas"] = notas
-
+            turmas = load_json(TURMAS_FILE)
+            
+            # Matricula o aluno nas turmas do primeiro período do curso
+            for materia in materias_periodo:
+                materia_nome = materia["nome"] if isinstance(materia, dict) else materia
+                turma_nome = f"{curso_nome}-{materia_nome}-P1"
+                turma = next((t for t in turmas if t["nome"] == turma_nome), None)
+                if turma and email not in turma["alunos"]:
+                    turma["alunos"].append(email)
         users.append(new_user)
         save_users(users)
+        save_json(TURMAS_FILE, turmas) 
 
         flash("Registro concluído com sucesso! Faça login.", "success")
         return redirect(url_for("login"))
@@ -298,18 +233,6 @@ def turma(nome):
     # Diário da turma
     diario = load_diario()
     registro_turma = next((d for d in diario if d["turma"] == nome), {"turma": nome, "registros": []})
-
-    # Calcular aulas disponíveis (baseado na matéria da turma)
-    def parse_turma_nome(turma_nome):
-        partes = turma_nome.split('-')
-        if len(partes) >= 3:
-            curso = '-'.join(partes[:-2])
-            materia = partes[-2]
-            periodo_str = partes[-1]
-            if periodo_str.startswith('P') and periodo_str[1:].isdigit():
-                periodo = int(periodo_str[1:])
-                return curso, materia, periodo
-        return None, None, None
 
     curso_nome, materia_nome, periodo = parse_turma_nome(nome)
     aulas = []
@@ -579,18 +502,6 @@ def diario_turma(nome):
         flash("Turma não encontrada.", "danger")
         return redirect(url_for("dashboard"))
 
-    # Função para parsear o nome da turma e extrair curso, matéria e período
-    def parse_turma_nome(turma_nome):
-        partes = turma_nome.split('-')
-        if len(partes) >= 3:
-            curso = '-'.join(partes[:-2])  # Junta tudo exceto as últimas duas partes
-            materia = partes[-2]  # Penúltima parte é a matéria
-            periodo_str = partes[-1]  # Última parte é "P1", "P2", etc.
-            if periodo_str.startswith('P') and periodo_str[1:].isdigit():
-                periodo = int(periodo_str[1:])
-                return curso, materia, periodo
-        return None, None, None
-
     curso_nome, materia_nome, periodo = parse_turma_nome(nome)
     if not curso_nome or not materia_nome or periodo is None:
         flash("Nome da turma inválido. Não foi possível identificar a matéria.", "danger")
@@ -650,13 +561,13 @@ def editar_diario(nome, registro_id):
     if not registro:
         flash("Registro não encontrado.", "danger")
         return redirect(url_for("diario_turma", nome=nome))
+    
     # Atualiza os campos editáveis (aula e conteúdo)
     aula = request.form.get("aula")
     conteudo = request.form.get("conteudo", "").strip()
     if aula and conteudo:
         registro["aula"] = aula
         registro["conteudo"] = conteudo
-        # Opcional: atualizar a data para refletir a edição
         from datetime import datetime
         registro["data"] = datetime.now().strftime("%d/%m/%Y %H:%M") + " (editado)"
         save_diario(diario)
@@ -849,14 +760,11 @@ def recomendacoes():
     turmas = load_json(TURMAS_FILE)
     materiais = load_json(MATERIAIS_FILE)
     pesos = {"NP1": 0.4, "NP2": 0.6}
-    diario = load_diario()
 
-    recomendados = recomendar_estudo(aluno, turmas, diario, materiais, pesos)
+    recomendados = recomendar_materiais(aluno, turmas, materiais, pesos)
 
     return render_template("recomendacoes.html", user=aluno["fullname"], recomendados=recomendados)
 
-# -------------------- Configuração do Gemini --------------------
-    
 # -------------------- Iniciar o aplicativo --------------------
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)

@@ -1,0 +1,67 @@
+:root {
+  --primary-color: #fff200;
+  --secondary-color: #0d1f3c;
+  --accent-color: #1e3a8a;
+  --text-dark: #121212;
+  --text-light: #ffffff;
+  --nav-bg: #0d1f3c;
+  --alert-success-bg: #0f5132;
+  --alert-error-bg: #842029;
+  --alert-warning-bg: #664d03;
+  --border-radius: 8px;
+  --transition: 0.3s ease;
+}
+
+/* ======= HEADER ======= */
+header {
+    width: 100%;
+    padding: 15px 30px;
+    background-color: var(--nav-bg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+header p {
+    color: var(--primary-color);
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+}
+
+header a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: var(--border-radius);
+    background-color: var(--secondary-color);
+    transition: background-color var(--transition);
+}
+
+header a:hover {
+    background-color: var(--accent-color);
+}
+
+/* ======= CONTAINER ======= */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h2 {
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+/* ======= RECOMMENDATION IMAGE ======= */
+.image-sucess {
+  width: 350px;
+  height: auto;
+  display: block;
+  margin: 20px auto 0 auto;
+}

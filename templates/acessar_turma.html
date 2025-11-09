@@ -15,7 +15,7 @@
   <body>
     <!-- Cabeçalho -->
     <div class="header">
-      <h2>Turma: {{ turma.nome }}</h2>
+      <h2>{{ turma.nome }}</h2>
       <a href="{{ url_for('dashboard') }}" class="btn btn-light">Voltar</a>
     </div>
     <div class="container">
@@ -68,7 +68,7 @@
         </li>
       </ul>
 
-      <div class="tab-content mt-3">
+      <div class="tab-content">
         <!-- Materiais -->
         <div class="tab-pane fade show active" id="materiais">
           {% if materiais %}
