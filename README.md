@@ -2,7 +2,7 @@
 
 **Projeto Integrado Multidisciplinar – 2º Semestre**
 
-Este projeto é um **sistema acadêmico completo**, desenvolvido em **Python com Flask**, que permite gerenciar usuários, cursos, turmas, materiais, avisos, diários e notas de alunos. O sistema inclui funcionalidades para alunos, professores e administradores, com persistência de dados em arquivos JSON e integração opcional com uma biblioteca C para cálculo de médias.
+Este projeto é um **sistema acadêmico completo**, desenvolvido em **Python com Flask**, que permite gerenciar usuários, cursos, turmas, materiais, avisos, diários e notas de alunos. O sistema inclui funcionalidades para alunos, professores e administradores, com persistência de dados em arquivos JSON, integração opcional com uma biblioteca C para cálculo de médias, e um **chatbot acadêmico com IA**.
 
 ---
 
@@ -14,6 +14,7 @@ Este projeto é um **sistema acadêmico completo**, desenvolvido em **Python com
 * Acessar conteúdos de suas turmas.
 * Consultar notas e médias calculadas.
 * Participar de chats da turma.
+* Interagir com o **chatbot acadêmico (INTEC IA)** para dúvidas.
 
 ### Para Professores
 
@@ -22,6 +23,7 @@ Este projeto é um **sistema acadêmico completo**, desenvolvido em **Python com
 * Adicionar materiais e avisos nas turmas.
 * Registrar aulas no diário da turma.
 * Gerenciar alunos em turmas (adicionar/remover).
+* Acessar o **chatbot acadêmico** para suporte e informações.
 
 ### Para Administradores
 
@@ -36,9 +38,16 @@ Este projeto é um **sistema acadêmico completo**, desenvolvido em **Python com
 ```text
 PIM_2DSP39/
 ├─ app.py                   # Arquivo principal Flask
+├─ ai_routes.py             # Rotas do chatbot acadêmico
 ├─ utils.py                 # Funções auxiliares, ex: cálculo de média
+├─ notas.c                  # Código fonte C para cálculo de média
+├─ ai_module/
+│  ├─ __init__.py           # Blueprint do chatbot
+│  └─ recommendation.py      # Lógica de recomendação de estudos
+│  └─ adptative_recommendation.py   # Lógica de recomendação de estudos adaptativa
 ├─ libs/
 │  └─ notas.dll             # Biblioteca C para cálculo de média
+│  └─ libnotas.so              # Biblioteca C para cálculo de média (Linux)
 ├─ data/                    # Armazena os arquivos JSON
 │  ├─ users.json
 │  ├─ turmas.json
@@ -58,6 +67,7 @@ PIM_2DSP39/
 
 * **Python 3.x**
 * **Flask** (web framework)
+* **Blueprints Flask** (organização modular, ex: chatbot)
 * **Bootstrap 5** (frontend)
 * **JSON** (persistência de dados)
 * **C / ctypes** (cálculo de médias via DLL)
@@ -98,6 +108,16 @@ flask run
 ```
 http://127.0.0.1:5000/
 ```
+
+5. Para acessar o **chatbot acadêmico**:
+
+```html
+<a class="nav-link" id="chatbot-tab" href="{{ url_for('ai.chatbot') }}">
+    INTEC IA
+</a>
+```
+
+> Observação: o `url_for('ai.chatbot')` refere-se ao blueprint `ai` e à função `chatbot`.
 
 ---
 
