@@ -1,0 +1,120 @@
+:root {
+  --azul-escuro: #0d1f3c;
+  --azul-claro: #1e3a8a;
+  --amarelo: #ffc107;
+  --branco: #ffffff;
+  --cinza-claro: #f8f9fa;
+  --cinza-medio: #e9ecef;
+  --cinza-escuro: #6b7280;
+  --verde: #198754;
+  --vermelho: #dc3545;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--cinza-claro);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  align-items: center;
+  padding: 40px 20px;
+  color: var(--azul-escuro);
+}
+
+header {
+  width: 100%;
+  background-color: var(--azul-escuro);
+  color: var(--amarelo);
+  text-align: center;
+  padding: 15px 0;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin-bottom: 40px;
+}
+
+.card {
+  background-color: var(--branco);
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  padding: 30px;
+  max-width: 600px;
+  width: 100%;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: 600;
+  color: var(--azul-escuro);
+}
+
+.form-label {
+  font-weight: 500;
+  color: var(--azul-escuro);
+}
+
+.form-control {
+  border-radius: 8px;
+  border: 1px solid var(--cinza-medio);
+  padding: 10px;
+  transition: all 0.2s;
+}
+
+.form-control:focus {
+  border-color: var(--azul-claro);
+  box-shadow: 0 0 0 2px rgba(30, 58, 138, 0.2);
+  outline: none;
+}
+
+.btn {
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-success {
+  background-color: var(--verde);
+  color: var(--branco);
+}
+
+.btn-success:hover {
+  background-color: #117a33;
+}
+
+.btn-secondary {
+  background-color: var(--cinza-medio);
+  color: var(--azul-escuro);
+  margin-left: 10px;
+}
+
+.btn-secondary:hover {
+  background-color: #d6d6d6;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+@media (max-width: 576px) {
+  .card {
+    padding: 20px;
+  }
+}

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>INTEC IA</title>
+    <link
+      href="{{ url_for('static', filename='css/intec_ia.css') }}"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav>
+      <h2>INTEC IA</h2>
+      <a href="/dashboard">← Portal do Aluno</a>
+    </nav>
+
+    <div class="main-container">
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <button onclick="clearChat()">🧹 Chat em branco</button>
+
+        <h3>Lógica de Programação</h3>
+        <button
+          onclick="sendPredefined('O que é uma variável e como ela funciona?')"
+        >
+          O que é uma variável e como ela funciona?
+        </button>
+        <button
+          onclick="sendPredefined('Explique o que é um loop e onde é usado.')"
+        >
+          Explique o que é um loop e onde é usado.
+        </button>
+        <button onclick="sendPredefined('Qual a diferença entre if e else?')">
+          Qual a diferença entre if e else?
+        </button>
+
+        <h3>Estrutura de Código</h3>
+        <button
+          onclick="sendPredefined('Como funciona a estrutura de um programa em Python?')"
+        >
+          Estrutura de um programa em Python
+        </button>
+        <button
+          onclick="sendPredefined('O que é uma função e para que serve?')"
+        >
+          O que é uma função e para que serve?
+        </button>
+        <button
+          onclick="sendPredefined('Por que identação é importante em Python?')"
+        >
+          Por que identação é importante em Python?
+        </button>
+
+        <h3>Banco de Dados</h3>
+        <button onclick="sendPredefined('O que é SQL e para que serve?')">
+          O que é SQL e para que serve?
+        </button>
+        <button
+          onclick="sendPredefined('Explique a diferença entre chave primária e estrangeira.')"
+        >
+          Diferença entre chave primária e estrangeira
+        </button>
+        <button
+          onclick="sendPredefined('Como funciona o comando SELECT no SQL?')"
+        >
+          Como funciona o comando SELECT?
+        </button>
+      </div>
+
+      <!-- Chat -->
+      <div class="chat-wrapper">
+        <div id="chat-box">
+          <div class="bot-msg">
+            <strong>Eliana:</strong> Olá! Sou sua assistente acadêmica da INTEC.
+            Posso ajudar com dúvidas sobre programação, algoritmos ou banco de
+            dados.
+          </div>
+        </div>
+
+        <div class="chat-input-area">
+          <input
+            type="text"
+            id="user-input"
+            placeholder="Digite sua pergunta..."
+          />
+          <button onclick="sendMessage()">Enviar</button>
+        </div>
+        <p id="status-message"></p>
+      </div>
+    </div>
+
+    <script>
+      function sendMessage() {
+        const input = document.getElementById("user-input");
+        const message = input.value.trim();
+        if (!message) return;
+        appendUserMessage(message);
+        input.value = "";
+        fetchBotResponse(message);
+      }
+
+      function sendPredefined(message) {
+        appendUserMessage(message);
+        fetchBotResponse(message);
+      }
+
+      function appendUserMessage(message) {
+        const chatBox = document.getElementById("chat-box");
+        chatBox.innerHTML += `<div class='user-msg'>${message}</div>`;
+        chatBox.scrollTop = chatBox.scrollHeight;
+        document.getElementById("status-message").textContent = "Digitando...";
+      }
+
+      function appendBotMessage(response) {
+        const chatBox = document.getElementById("chat-box");
+        chatBox.innerHTML += `<div class='bot-msg'>${response}</div>`;
+        chatBox.scrollTop = chatBox.scrollHeight;
+      }
+
+      function fetchBotResponse(message) {
+        fetch("/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            document.getElementById("status-message").textContent = "";
+            appendBotMessage(data.response.replace(/\n/g, "<br>"));
+          })
+          .catch(() => {
+            document.getElementById("status-message").textContent =
+              "Erro de conexão.";
+          });
+      }
+
+      function clearChat() {
+        const chatBox = document.getElementById("chat-box");
+        chatBox.innerHTML = `<div class="bot-msg"><strong>Eliana:</strong> Chat limpo. Podemos começar uma nova conversa!</div>`;
+      }
+
+      document
+        .getElementById("user-input")
+        .addEventListener("keypress", (e) => {
+          if (e.key === "Enter") sendMessage();
+        });
+    </script>
+  </body>
+</html>

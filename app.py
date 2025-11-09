@@ -5,10 +5,16 @@ import json, os
 import random
 from utils import calcular_media_c
 from ai_module.adaptive_recommendation import recomendar_estudo
+from dotenv import load_dotenv
+import google.generativeai as genai
+from ai_routes import ai_blueprint
+
+load_dotenv()
 
 app = Flask(__name__)
 app.secret_key = "supersecretkey"
 app.permanent_session_lifetime = timedelta(minutes=30)
+app.register_blueprint(ai_blueprint, url_prefix='/ai_module')
 
 pesos = {"NP1": 0.4, "NP2": 0.6}
 
@@ -843,12 +849,14 @@ def recomendacoes():
     turmas = load_json(TURMAS_FILE)
     materiais = load_json(MATERIAIS_FILE)
     pesos = {"NP1": 0.4, "NP2": 0.6}
+    diario = load_diario()
 
-    recomendados = recomendar_estudo(aluno, turmas, materiais, pesos)
+    recomendados = recomendar_estudo(aluno, turmas, diario, materiais, pesos)
 
     return render_template("recomendacoes.html", user=aluno["fullname"], recomendados=recomendados)
 
-
-# -------------------- Rodar servidor --------------------
+# -------------------- Configuração do Gemini --------------------
+    
+# -------------------- Iniciar o aplicativo --------------------
 if __name__ == "__main__":
     app.run(debug=True)

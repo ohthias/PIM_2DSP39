@@ -1,11 +1,5 @@
 [
     {
-        "fullname": "usuário teste",
-        "email": "test@test",
-        "password": "scrypt:32768:8:1$eNcRMqs6TFkHT2Ri$378bca6ead1a51d4dac6dd0447c7d6f9c7924862441ce6256911249f74a7f07fbb507b7daa82eb5bce8846c35344a26562ae520c83f4f0bdd9fe92982958bf8f",
-        "role": "professor"
-    },
-    {
         "fullname": "Professor",
         "email": "professor@docente.unip.org.br",
         "password": "scrypt:32768:8:1$oJAxg51C6zTafggN$5368a87eee09d15cb5c1eaaf9e4cf9a05d33356e9d9d2acd8f3751c1659e24aca981df3ad9696124c504397974b8c17203db0c01ca250e2e362d840362f75ac1",
@@ -35,6 +29,1023 @@
                 "NP1": 2.4,
                 "NP2": 6.0,
                 "media": 4.2
+            }
+        }
+    },
+    {
+        "fullname": "Marcelo Silva",
+        "email": "marcelo.silva@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Ana Lima",
+        "email": "ana.lima@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Ana Souza",
+        "email": "ana.souza@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Mariana Rocha",
+        "email": "mariana.rocha@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Bruno Mendes",
+        "email": "bruno.mendes@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Lucas Pereira",
+        "email": "lucas.pereira@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Carla Rodrigues",
+        "email": "carla.rodrigues@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Roberto Santos",
+        "email": "roberto.santos@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Diego Alves",
+        "email": "diego.alves@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Eduarda Lima",
+        "email": "eduarda.lima@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Felipe Carvalho",
+        "email": "felipe.carvalho@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Gabriela Pereira",
+        "email": "gabriela.pereira@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Heitor Santos",
+        "email": "heitor.santos@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Irene Motta",
+        "email": "irene.motta@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Joao Nunes",
+        "email": "joao.nunes@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Karina Farias",
+        "email": "karina.farias@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Leonardo Vieira",
+        "email": "leonardo.vieira@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Paulo Carneiro",
+        "email": "paulo.carneiro@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Mariana Torres",
+        "email": "mariana.torres@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Nicolas Rocha",
+        "email": "nicolas.rocha@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Olivia Martins",
+        "email": "olivia.martins@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Pedro Costa",
+        "email": "pedro.costa@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Quintino Almeida",
+        "email": "quintino.almeida@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Renata Gomes",
+        "email": "renata.gomes@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Silvia Moraes",
+        "email": "silvia.moraes@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Tiago Martins",
+        "email": "tiago.martins@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Leticia Fonseca",
+        "email": "leticia.fonseca@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Ursula Silva",
+        "email": "ursula.silva@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Vitor Souza",
+        "email": "vitor.souza@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Walter Lima",
+        "email": "walter.lima@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Xenia Pereira",
+        "email": "xenia.pereira@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Yasmin Carneiro",
+        "email": "yasmin.carneiro@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Ze Rodrigues",
+        "email": "ze.rodrigues@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Amanda Luiz",
+        "email": "amanda.luiz@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Fabiana Mello",
+        "email": "fabiana.mello@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Bruno Leite",
+        "email": "bruno.leite@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Camila Santos",
+        "email": "camila.santos@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Diego Pinto",
+        "email": "diego.pinto@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Eloisa Fernandes",
+        "email": "eloisa.fernandes@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Fabio Goncalves",
+        "email": "fabio.goncalves@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Gisele Amaral",
+        "email": "gisele.amaral@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Henrique Souza",
+        "email": "henrique.souza@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Hugo Barros",
+        "email": "hugo.barros@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Isabela Castro",
+        "email": "isabela.castro@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Joana Felix",
+        "email": "joana.felix@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Kleber Rodrigues",
+        "email": "kleber.rodrigues@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Lucia Pereira",
+        "email": "lucia.pereira@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Mateus Almeida",
+        "email": "mateus.almeida@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Natasha Oliveira",
+        "email": "natasha.oliveira@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Otavio Sousa",
+        "email": "otavio.sousa@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Patricia Mendes",
+        "email": "patricia.mendes@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Rafaela Vieira",
+        "email": "rafaela.vieira@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Samuel Cunha",
+        "email": "samuel.cunha@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Tatiana Lopes",
+        "email": "tatiana.lopes@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Ugo Machado",
+        "email": "ugo.machado@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Valentina Silveira",
+        "email": "valentina.silveira@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "William Nascimento",
+        "email": "william.nascimento@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Xavier Silva",
+        "email": "xavier.silva@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Yago Cardoso",
+        "email": "yago.cardoso@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Zuleica Pinto",
+        "email": "zuleica.pinto@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Analu Freitas",
+        "email": "analu.freitas@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Bruno Costa",
+        "email": "bruno.costa@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Carolina Monteiro",
+        "email": "carolina.monteiro@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Diego Silva",
+        "email": "diego.silva@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Danilo Siqueira",
+        "email": "danilo.siqueira@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Elaine Moreira",
+        "email": "elaine.moreira@docente.unip.org.br",
+        "password": "",
+        "role": "professor"
+    },
+    {
+        "fullname": "Paulo Ribeiro",
+        "email": "paulo.ribeiro@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Análise e Desenvolvimento de Sistemas",
+        "periodo_atual": 2,
+        "matricula": "AN1001",
+        "notas": {}
+    },
+    {
+        "fullname": "Marcos Oliveira",
+        "email": "marcos.oliveira@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Ciência da Computação",
+        "periodo_atual": 5,
+        "matricula": "CC2001",
+        "notas": {}
+    },
+    {
+        "fullname": "Beatriz Santos",
+        "email": "beatriz.santos@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Engenharia de Computação",
+        "periodo_atual": 7,
+        "matricula": "EC3001",
+        "notas": {}
+    },
+    {
+        "fullname": "Ricardo Lopes",
+        "email": "ricardo.lopes@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Sistemas de Informação",
+        "periodo_atual": 3,
+        "matricula": "SI4001",
+        "notas": {}
+    },
+    {
+        "fullname": "Fernanda Castro",
+        "email": "fernanda.castro@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Redes de Computadores (Tecnólogo)",
+        "periodo_atual": 2,
+        "matricula": "RD5001",
+        "notas": {}
+    },
+    {
+        "fullname": "Daniel Alves",
+        "email": "daniel.alves@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Segurança da Informação",
+        "periodo_atual": 6,
+        "matricula": "SG6001",
+        "notas": {}
+    },
+    {
+        "fullname": "Alice Martins",
+        "email": "alice.martins@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Inteligência Artificial (Tecnólogo)",
+        "periodo_atual": 1,
+        "matricula": "IA7001",
+        "notas": {}
+    },
+    {
+        "fullname": "Victor Nunes",
+        "email": "victor.nunes@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Ciência de Dados",
+        "periodo_atual": 4,
+        "matricula": "CD8001",
+        "notas": {}
+    },
+    {
+        "fullname": "Sofia Almeida",
+        "email": "sofia.almeida@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Engenharia de Software",
+        "periodo_atual": 2,
+        "matricula": "ES9001",
+        "notas": {}
+    },
+    {
+        "fullname": "Lucas Almeida",
+        "email": "lucas.almeida@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Análise e Desenvolvimento de Sistemas",
+        "periodo_atual": 3,
+        "matricula": "AN1002",
+        "notas": {}
+    },
+    {
+        "fullname": "Mariana Silva",
+        "email": "mariana.silva@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Análise e Desenvolvimento de Sistemas",
+        "periodo_atual": 4,
+        "matricula": "AN1003",
+        "notas": {}
+    },
+    {
+        "fullname": "Rafael Costa",
+        "email": "rafael.costa@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Análise e Desenvolvimento de Sistemas",
+        "periodo_atual": 1,
+        "matricula": "AN1004",
+        "notas": {
+            "Lógica de Programação": {
+                "NP1": 5.4,
+                "NP2": 2.4,
+                "media": 3.6
+            }
+        }
+    },
+    {
+        "fullname": "Patricia Souza",
+        "email": "patricia.souza@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Ciência da Computação",
+        "periodo_atual": 2,
+        "matricula": "CC2002",
+        "notas": {}
+    },
+    {
+        "fullname": "Henrique Dias",
+        "email": "henrique.dias@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Ciência da Computação",
+        "periodo_atual": 8,
+        "matricula": "CC2003",
+        "notas": {}
+    },
+    {
+        "fullname": "Camila Rocha",
+        "email": "camila.rocha@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Ciência da Computação",
+        "periodo_atual": 6,
+        "matricula": "CC2004",
+        "notas": {}
+    },
+    {
+        "fullname": "Gustavo Pereira",
+        "email": "gustavo.pereira@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Engenharia de Computação",
+        "periodo_atual": 2,
+        "matricula": "EC3002",
+        "notas": {}
+    },
+    {
+        "fullname": "Helena Moreira",
+        "email": "helena.moreira@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Engenharia de Computação",
+        "periodo_atual": 10,
+        "matricula": "EC3003",
+        "notas": {}
+    },
+    {
+        "fullname": "Fabio Lima",
+        "email": "fabio.lima@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Engenharia de Computação",
+        "periodo_atual": 5,
+        "matricula": "EC3004",
+        "notas": {}
+    },
+    {
+        "fullname": "Bruna Fernandes",
+        "email": "bruna.fernandes@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Sistemas de Informação",
+        "periodo_atual": 4,
+        "matricula": "SI4002",
+        "notas": {}
+    },
+    {
+        "fullname": "Igor Ramos",
+        "email": "igor.ramos@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Sistemas de Informação",
+        "periodo_atual": 7,
+        "matricula": "SI4003",
+        "notas": {}
+    },
+    {
+        "fullname": "Vanessa Pinto",
+        "email": "vanessa.pinto@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Sistemas de Informação",
+        "periodo_atual": 1,
+        "matricula": "SI4004",
+        "notas": {}
+    },
+    {
+        "fullname": "Rosa Carvalho",
+        "email": "rosa.carvalho@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Redes de Computadores (Tecnólogo)",
+        "periodo_atual": 3,
+        "matricula": "RD5002",
+        "notas": {}
+    },
+    {
+        "fullname": "Thiago Gomes",
+        "email": "thiago.gomes@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Redes de Computadores (Tecnólogo)",
+        "periodo_atual": 1,
+        "matricula": "RD5003",
+        "notas": {}
+    },
+    {
+        "fullname": "Clara Nascimento",
+        "email": "clara.nascimento@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Segurança da Informação",
+        "periodo_atual": 8,
+        "matricula": "SG6002",
+        "notas": {}
+    },
+    {
+        "fullname": "Vladimir Teixeira",
+        "email": "vladimir.teixeira@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Segurança da Informação",
+        "periodo_atual": 4,
+        "matricula": "SG6003",
+        "notas": {}
+    },
+    {
+        "fullname": "Beatriz Moraes",
+        "email": "beatriz.moraes@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Inteligência Artificial (Tecnólogo)",
+        "periodo_atual": 2,
+        "matricula": "IA7002",
+        "notas": {}
+    },
+    {
+        "fullname": "Eduardo Castro",
+        "email": "eduardo.castro@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Inteligência Artificial (Tecnólogo)",
+        "periodo_atual": 3,
+        "matricula": "IA7003",
+        "notas": {}
+    },
+    {
+        "fullname": "Marcos Dias",
+        "email": "marcos.dias@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Ciência de Dados",
+        "periodo_atual": 6,
+        "matricula": "CD8002",
+        "notas": {}
+    },
+    {
+        "fullname": "Lara Barbosa",
+        "email": "lara.barbosa@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Ciência de Dados",
+        "periodo_atual": 2,
+        "matricula": "CD8003",
+        "notas": {}
+    },
+    {
+        "fullname": "Guilherme Pinto",
+        "email": "guilherme.pinto@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Engenharia de Software",
+        "periodo_atual": 5,
+        "matricula": "ES9002",
+        "notas": {}
+    },
+    {
+        "fullname": "Nicole Fernandes",
+        "email": "nicole.fernandes@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Engenharia de Software",
+        "periodo_atual": 8,
+        "matricula": "ES9003",
+        "notas": {}
+    },
+    {
+        "fullname": "Fernando Araujo",
+        "email": "fernando.araujo@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Análise e Desenvolvimento de Sistemas",
+        "periodo_atual": 2,
+        "matricula": "AN1005",
+        "notas": {}
+    },
+    {
+        "fullname": "Adriana Ribeiro",
+        "email": "adriana.ribeiro@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Ciência da Computação",
+        "periodo_atual": 3,
+        "matricula": "CC2005",
+        "notas": {}
+    },
+    {
+        "fullname": "Cesar Oliveira",
+        "email": "cesar.oliveira@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Engenharia de Computação",
+        "periodo_atual": 9,
+        "matricula": "EC3005",
+        "notas": {}
+    },
+    {
+        "fullname": "Priscila Santos",
+        "email": "priscila.santos@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Sistemas de Informação",
+        "periodo_atual": 6,
+        "matricula": "SI4005",
+        "notas": {}
+    },
+    {
+        "fullname": "Lucas Mendes",
+        "email": "lucas.mendes@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Redes de Computadores (Tecnólogo)",
+        "periodo_atual": 4,
+        "matricula": "RD5004",
+        "notas": {}
+    },
+    {
+        "fullname": "Sabrina Rocha",
+        "email": "sabrina.rocha@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Segurança da Informação",
+        "periodo_atual": 1,
+        "matricula": "SG6004",
+        "notas": {}
+    },
+    {
+        "fullname": "Matheus Vieira",
+        "email": "matheus.vieira@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Inteligência Artificial (Tecnólogo)",
+        "periodo_atual": 4,
+        "matricula": "IA7004",
+        "notas": {}
+    },
+    {
+        "fullname": "Isadora Gomes",
+        "email": "isadora.gomes@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Ciência de Dados",
+        "periodo_atual": 1,
+        "matricula": "CD8004",
+        "notas": {}
+    },
+    {
+        "fullname": "Daniela Almeida",
+        "email": "daniela.almeida@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Engenharia de Software",
+        "periodo_atual": 3,
+        "matricula": "ES9004",
+        "notas": {}
+    },
+    {
+        "fullname": "Rodrigo Carvalho",
+        "email": "rodrigo.carvalho@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Análise e Desenvolvimento de Sistemas",
+        "periodo_atual": 1,
+        "matricula": "AN1006",
+        "notas": {
+            "Lógica de Programação": {
+                "NP1": 5.3,
+                "NP2": 10.0,
+                "media": 8.120000000000001
+            }
+        }
+    },
+    {
+        "fullname": "Monica Freitas",
+        "email": "monica.freitas@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Ciência da Computação",
+        "periodo_atual": 7,
+        "matricula": "CC2006",
+        "notas": {}
+    },
+    {
+        "fullname": "André Luiz",
+        "email": "andre.luiz@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Engenharia de Computação",
+        "periodo_atual": 1,
+        "matricula": "EC3006",
+        "notas": {}
+    },
+    {
+        "fullname": "Sara Lopes",
+        "email": "sara.lopes@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Sistemas de Informação",
+        "periodo_atual": 8,
+        "matricula": "SI4006",
+        "notas": {}
+    },
+    {
+        "fullname": "Hugo Santana",
+        "email": "hugo.santana@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Redes de Computadores (Tecnólogo)",
+        "periodo_atual": 2,
+        "matricula": "RD5005",
+        "notas": {}
+    },
+    {
+        "fullname": "Paula Nunes",
+        "email": "paula.nunes@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Segurança da Informação",
+        "periodo_atual": 5,
+        "matricula": "SG6005",
+        "notas": {}
+    },
+    {
+        "fullname": "Yuri Marques",
+        "email": "yuri.marques@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Inteligência Artificial (Tecnólogo)",
+        "periodo_atual": 2,
+        "matricula": "IA7005",
+        "notas": {}
+    },
+    {
+        "fullname": "Bianca Costa",
+        "email": "bianca.costa@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Ciência de Dados",
+        "periodo_atual": 5,
+        "matricula": "CD8005",
+        "notas": {}
+    },
+    {
+        "fullname": "Ramon Pinto",
+        "email": "ramon.pinto@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Engenharia de Software",
+        "periodo_atual": 7,
+        "matricula": "ES9005",
+        "notas": {}
+    },
+    {
+        "fullname": "Geraldo Barros",
+        "email": "geraldo.barros@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Análise e Desenvolvimento de Sistemas",
+        "periodo_atual": 4,
+        "matricula": "AN1007",
+        "notas": {}
+    },
+    {
+        "fullname": "Leticia Ramos",
+        "email": "leticia.ramos@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Ciência da Computação",
+        "periodo_atual": 4,
+        "matricula": "CC2007",
+        "notas": {}
+    },
+    {
+        "fullname": "Otavio Sousa",
+        "email": "otavio.sousa@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Engenharia de Computação",
+        "periodo_atual": 3,
+        "matricula": "EC3007",
+        "notas": {}
+    },
+    {
+        "fullname": "Elisa Duarte",
+        "email": "elisa.duarte@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Sistemas de Informação",
+        "periodo_atual": 2,
+        "matricula": "SI4007",
+        "notas": {}
+    },
+    {
+        "fullname": "Renan Bittencourt",
+        "email": "renan.bittencourt@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Redes de Computadores (Tecnólogo)",
+        "periodo_atual": 4,
+        "matricula": "RD5006",
+        "notas": {}
+    },
+    {
+        "fullname": "Marcia Pires",
+        "email": "marcia.pires@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Segurança da Informação",
+        "periodo_atual": 7,
+        "matricula": "SG6006",
+        "notas": {}
+    },
+    {
+        "fullname": "Igor Fernandes",
+        "email": "igor.fernandes@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Inteligência Artificial (Tecnólogo)",
+        "periodo_atual": 3,
+        "matricula": "IA7006",
+        "notas": {}
+    },
+    {
+        "fullname": "Suelen Ribeiro",
+        "email": "suelen.ribeiro@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Ciência de Dados",
+        "periodo_atual": 3,
+        "matricula": "CD8006",
+        "notas": {}
+    },
+    {
+        "fullname": "Vitor Hugo",
+        "email": "vitor.hugo@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Engenharia de Software",
+        "periodo_atual": 2,
+        "matricula": "ES9006",
+        "notas": {}
+    },
+    {
+        "fullname": "Cecilia Marques",
+        "email": "cecilia.marques@student.unip.com",
+        "password": "",
+        "role": "student",
+        "curso": "Análise e Desenvolvimento de Sistemas",
+        "periodo_atual": 3,
+        "matricula": "AN1008",
+        "notas": {}
+    },
+    {
+        "fullname": "Matheus Gabriel Santos Silva",
+        "email": "matheus.gsilva@student.unip.com",
+        "password": "scrypt:32768:8:1$oioxZhiH43z1PRZ2$ee614b7f95645afc79a03c9edf836d97e9fad96dd270bcd833715076199a22ecee51a7555b8912953e9c14cb50e0c232913a33ab1846a97b50f9dbe17f2e17d1",
+        "role": "student",
+        "curso": "Análise e Desenvolvimento de Sistemas",
+        "periodo_atual": 1,
+        "matricula": "AN1868",
+        "notas": {
+            "Lógica de Programação": {
+                "NP1": null,
+                "NP2": null
+            },
+            "Matemática Discreta": {
+                "NP1": null,
+                "NP2": null
             }
         }
     }
