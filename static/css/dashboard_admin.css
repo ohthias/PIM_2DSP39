@@ -60,7 +60,8 @@ body {
 main {
   flex: 1;
   padding: 30px;
-  overflow-y: auto;
+  height: 100vh;
+  overflow-y: scroll;
 }
 
 /* Topbar */

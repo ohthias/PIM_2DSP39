@@ -5,19 +5,19 @@
             {
                 "id": 1762616338560,
                 "aula": "Aula 1",
-                "conteudo": "asssssssssssssssasssssssss",
+                "conteudo": "Introdução à lógica de programação: conceitos fundamentais (variáveis, tipos, operadores). Objetivos: entender fluxo sequencial e representar algoritmos. Exemplos práticos e exercício em sala. Tarefa: resolver 3 problemas simples usando variáveis e operações aritméticas.",
                 "data": "08/11/2025 15:55 (editado)"
             },
             {
                 "id": 1762616580065,
                 "aula": "Aula 2",
-                "conteudo": "asasddsa",
+                "conteudo": "Estruturas de controle: if/else e switch; laços for, while e do-while. Demonstração passo a passo e análise de complexidade básica. Atividade: implementar algoritmos de busca simples e laços aninhados. Tarefa: enviar solução comentada no repositório da disciplina.",
                 "data": "08/11/2025 15:43"
             },
             {
                 "id": 1762617468566,
-                "aula": "Aula 4",
-                "conteudo": "adsd",
+                "aula": "Aula 3",
+                "conteudo": "Funções e modularização: definir, chamar, passar parâmetros e retornar valores. Boas práticas: nomes significativos, função com única responsabilidade e comentários úteis. Refatoração do exercício anterior em funções reutilizáveis. Tarefa: criar um programa modularizado e documentado.",
                 "data": "08/11/2025 15:57"
             }
         ]

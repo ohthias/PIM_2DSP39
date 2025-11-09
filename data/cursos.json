@@ -8,6 +8,11 @@
                     "nome": "Lógica de Programação",
                     "aulas": 10,
                     "professor": "professor@docente.unip.org.br"
+                },
+                {
+                    "nome": "Matemática Discreta",
+                    "aulas": 8,
+                    "professor": "marcelo.silva@docente.unip.org.br"
                 }
             ],
             "2": [
@@ -15,6 +20,11 @@
                     "nome": "Banco de Dados",
                     "aulas": 10,
                     "professor": "professor@docente.unip.org.br"
+                },
+                {
+                    "nome": "Programação Web",
+                    "aulas": 8,
+                    "professor": "ana.lima@docente.unip.org.br"
                 }
             ],
             "3": [
@@ -29,6 +39,486 @@
                     "nome": "Segurança da Informação",
                     "aulas": 10,
                     "professor": "professor@docente.unip.org.br"
+                }
+            ]
+        }
+    },
+    {
+        "nome": "Ciência da Computação",
+        "periodos": 8,
+        "materias": {
+            "1": [
+                {
+                    "nome": "Algoritmos e Estruturas de Dados",
+                    "aulas": 10,
+                    "professor": "ana.souza@docente.unip.org.br"
+                },
+                {
+                    "nome": "Introdução à Programação",
+                    "aulas": 12,
+                    "professor": "mariana.rocha@docente.unip.org.br"
+                }
+            ],
+            "2": [
+                {
+                    "nome": "Cálculo Diferencial",
+                    "aulas": 10,
+                    "professor": "bruno.mendes@docente.unip.org.br"
+                },
+                {
+                    "nome": "Matemática Discreta",
+                    "aulas": 8,
+                    "professor": "lucas.pereira@docente.unip.org.br"
+                }
+            ],
+            "3": [
+                {
+                    "nome": "Arquitetura de Computadores",
+                    "aulas": 10,
+                    "professor": "carla.rodrigues@docente.unip.org.br"
+                },
+                {
+                    "nome": "Estruturas de Dados II",
+                    "aulas": 10,
+                    "professor": "roberto.santos@docente.unip.org.br"
+                }
+            ],
+            "4": [
+                {
+                    "nome": "Sistemas Operacionais",
+                    "aulas": 10,
+                    "professor": "diego.alves@docente.unip.org.br"
+                }
+            ],
+            "5": [
+                {
+                    "nome": "Redes de Computadores",
+                    "aulas": 10,
+                    "professor": "eduarda.lima@docente.unip.org.br"
+                }
+            ],
+            "6": [
+                {
+                    "nome": "Banco de Dados Avançado",
+                    "aulas": 10,
+                    "professor": "felipe.carvalho@docente.unip.org.br"
+                }
+            ],
+            "7": [
+                {
+                    "nome": "Inteligência Artificial",
+                    "aulas": 10,
+                    "professor": "gabriela.pereira@docente.unip.org.br"
+                }
+            ],
+            "8": [
+                {
+                    "nome": "Trabalho de Conclusão de Curso",
+                    "aulas": 10,
+                    "professor": "heitor.santos@docente.unip.org.br"
+                }
+            ]
+        }
+    },
+    {
+        "nome": "Engenharia de Computação",
+        "periodos": 10,
+        "materias": {
+            "1": [
+                {
+                    "nome": "Cálculo I",
+                    "aulas": 10,
+                    "professor": "irene.motta@docente.unip.org.br"
+                }
+            ],
+            "2": [
+                {
+                    "nome": "Física Geral",
+                    "aulas": 10,
+                    "professor": "joao.nunes@docente.unip.org.br"
+                }
+            ],
+            "3": [
+                {
+                    "nome": "Circuitos Digitais",
+                    "aulas": 10,
+                    "professor": "karina.farias@docente.unip.org.br"
+                }
+            ],
+            "4": [
+                {
+                    "nome": "Programação Estruturada",
+                    "aulas": 10,
+                    "professor": "leonardo.vieira@docente.unip.org.br"
+                },
+                {
+                    "nome": "Algoritmos e Análise",
+                    "aulas": 8,
+                    "professor": "paulo.carneiro@docente.unip.org.br"
+                }
+            ],
+            "5": [
+                {
+                    "nome": "Eletrônica Analógica",
+                    "aulas": 10,
+                    "professor": "mariana.torres@docente.unip.org.br"
+                }
+            ],
+            "6": [
+                {
+                    "nome": "Sistemas Embarcados",
+                    "aulas": 10,
+                    "professor": "nicolas.rocha@docente.unip.org.br"
+                }
+            ],
+            "7": [
+                {
+                    "nome": "Controle e Automação",
+                    "aulas": 10,
+                    "professor": "olivia.martins@docente.unip.org.br"
+                }
+            ],
+            "8": [
+                {
+                    "nome": "Sistemas Operacionais",
+                    "aulas": 10,
+                    "professor": "pedro.costa@docente.unip.org.br"
+                }
+            ],
+            "9": [
+                {
+                    "nome": "Redes e Comunicações",
+                    "aulas": 10,
+                    "professor": "quintino.almeida@docente.unip.org.br"
+                }
+            ],
+            "10": [
+                {
+                    "nome": "Projeto de Engenharia",
+                    "aulas": 10,
+                    "professor": "renata.gomes@docente.unip.org.br"
+                }
+            ]
+        }
+    },
+    {
+        "nome": "Sistemas de Informação",
+        "periodos": 8,
+        "materias": {
+            "1": [
+                {
+                    "nome": "Análise de Sistemas",
+                    "aulas": 10,
+                    "professor": "silvia.moraes@docente.unip.org.br"
+                }
+            ],
+            "2": [
+                {
+                    "nome": "Banco de Dados",
+                    "aulas": 10,
+                    "professor": "tiago.martins@docente.unip.org.br"
+                },
+                {
+                    "nome": "Programação Web",
+                    "aulas": 8,
+                    "professor": "leticia.fonseca@docente.unip.org.br"
+                }
+            ],
+            "3": [
+                {
+                    "nome": "Engenharia de Software",
+                    "aulas": 10,
+                    "professor": "ursula.silva@docente.unip.org.br"
+                }
+            ],
+            "4": [
+                {
+                    "nome": "Redes de Computadores",
+                    "aulas": 10,
+                    "professor": "vitor.souza@docente.unip.org.br"
+                }
+            ],
+            "5": [
+                {
+                    "nome": "Gestão de Projetos",
+                    "aulas": 10,
+                    "professor": "walter.lima@docente.unip.org.br"
+                }
+            ],
+            "6": [
+                {
+                    "nome": "Segurança da Informação",
+                    "aulas": 10,
+                    "professor": "xenia.pereira@docente.unip.org.br"
+                }
+            ],
+            "7": [
+                {
+                    "nome": "Business Intelligence",
+                    "aulas": 10,
+                    "professor": "yasmin.carneiro@docente.unip.org.br"
+                }
+            ],
+            "8": [
+                {
+                    "nome": "Trabalho de Conclusão de Curso",
+                    "aulas": 10,
+                    "professor": "ze.rodrigues@docente.unip.org.br"
+                }
+            ]
+        }
+    },
+    {
+        "nome": "Redes de Computadores (Tecnólogo)",
+        "periodos": 4,
+        "materias": {
+            "1": [
+                {
+                    "nome": "Fundamentos de Redes",
+                    "aulas": 10,
+                    "professor": "amanda.luiz@docente.unip.org.br"
+                },
+                {
+                    "nome": "Topologias e Meios de Transmissão",
+                    "aulas": 6,
+                    "professor": "fabiana.mello@docente.unip.org.br"
+                }
+            ],
+            "2": [
+                {
+                    "nome": "Interconexão de Redes",
+                    "aulas": 10,
+                    "professor": "bruno.leite@docente.unip.org.br"
+                }
+            ],
+            "3": [
+                {
+                    "nome": "Segurança de Redes",
+                    "aulas": 10,
+                    "professor": "camila.santos@docente.unip.org.br"
+                }
+            ],
+            "4": [
+                {
+                    "nome": "Administração de Redes",
+                    "aulas": 10,
+                    "professor": "diego.pinto@docente.unip.org.br"
+                }
+            ]
+        }
+    },
+    {
+        "nome": "Segurança da Informação",
+        "periodos": 8,
+        "materias": {
+            "1": [
+                {
+                    "nome": "Criptografia",
+                    "aulas": 10,
+                    "professor": "eloisa.fernandes@docente.unip.org.br"
+                }
+            ],
+            "2": [
+                {
+                    "nome": "Segurança em Redes",
+                    "aulas": 10,
+                    "professor": "fabio.goncalves@docente.unip.org.br"
+                }
+            ],
+            "3": [
+                {
+                    "nome": "Gestão de Segurança da Informação",
+                    "aulas": 10,
+                    "professor": "gisele.amaral@docente.unip.org.br"
+                },
+                {
+                    "nome": "Criptografia Aplicada",
+                    "aulas": 8,
+                    "professor": "henrique.souza@docente.unip.org.br"
+                }
+            ],
+            "4": [
+                {
+                    "nome": "Análise de Riscos",
+                    "aulas": 10,
+                    "professor": "hugo.barros@docente.unip.org.br"
+                }
+            ],
+            "5": [
+                {
+                    "nome": "Forense Computacional",
+                    "aulas": 10,
+                    "professor": "isabela.castro@docente.unip.org.br"
+                }
+            ],
+            "6": [
+                {
+                    "nome": "Políticas e Compliance",
+                    "aulas": 10,
+                    "professor": "joana.felix@docente.unip.org.br"
+                }
+            ],
+            "7": [
+                {
+                    "nome": "Segurança de Aplicações",
+                    "aulas": 10,
+                    "professor": "kleber.rodrigues@docente.unip.org.br"
+                }
+            ],
+            "8": [
+                {
+                    "nome": "Trabalho de Conclusão de Curso",
+                    "aulas": 10,
+                    "professor": "lucia.pereira@docente.unip.org.br"
+                }
+            ]
+        }
+    },
+    {
+        "nome": "Inteligência Artificial (Tecnólogo)",
+        "periodos": 4,
+        "materias": {
+            "1": [
+                {
+                    "nome": "Introdução à IA",
+                    "aulas": 10,
+                    "professor": "mateus.almeida@docente.unip.org.br"
+                }
+            ],
+            "2": [
+                {
+                    "nome": "Aprendizado de Máquina",
+                    "aulas": 10,
+                    "professor": "natasha.oliveira@docente.unip.org.br"
+                }
+            ],
+            "3": [
+                {
+                    "nome": "Processamento de Linguagem Natural",
+                    "aulas": 10,
+                    "professor": "otavio.sousa@docente.unip.org.br"
+                }
+            ],
+            "4": [
+                {
+                    "nome": "Projeto de IA",
+                    "aulas": 10,
+                    "professor": "patricia.mendes@docente.unip.org.br"
+                }
+            ]
+        }
+    },
+    {
+        "nome": "Ciência de Dados",
+        "periodos": 6,
+        "materias": {
+            "1": [
+                {
+                    "nome": "Estatística",
+                    "aulas": 10,
+                    "professor": "rafaela.vieira@docente.unip.org.br"
+                }
+            ],
+            "2": [
+                {
+                    "nome": "Probabilidade",
+                    "aulas": 10,
+                    "professor": "samuel.cunha@docente.unip.org.br"
+                }
+            ],
+            "3": [
+                {
+                    "nome": "Programação para Data Science",
+                    "aulas": 10,
+                    "professor": "tatiana.lopes@docente.unip.org.br"
+                }
+            ],
+            "4": [
+                {
+                    "nome": "Banco de Dados para Data Science",
+                    "aulas": 10,
+                    "professor": "ugo.machado@docente.unip.org.br"
+                }
+            ],
+            "5": [
+                {
+                    "nome": "Machine Learning",
+                    "aulas": 10,
+                    "professor": "valentina.silveira@docente.unip.org.br"
+                }
+            ],
+            "6": [
+                {
+                    "nome": "Projeto de Data Science",
+                    "aulas": 10,
+                    "professor": "william.nascimento@docente.unip.org.br"
+                }
+            ]
+        }
+    },
+    {
+        "nome": "Engenharia de Software",
+        "periodos": 8,
+        "materias": {
+            "1": [
+                {
+                    "nome": "Modelagem UML",
+                    "aulas": 10,
+                    "professor": "xavier.silva@docente.unip.org.br"
+                }
+            ],
+            "2": [
+                {
+                    "nome": "Processos de Software",
+                    "aulas": 10,
+                    "professor": "yago.cardoso@docente.unip.org.br"
+                }
+            ],
+            "3": [
+                {
+                    "nome": "Arquitetura de Software",
+                    "aulas": 10,
+                    "professor": "zuleica.pinto@docente.unip.org.br"
+                }
+            ],
+            "4": [
+                {
+                    "nome": "Testes de Software",
+                    "aulas": 10,
+                    "professor": "analu.freitas@docente.unip.org.br"
+                }
+            ],
+            "5": [
+                {
+                    "nome": "Manutenção de Software",
+                    "aulas": 10,
+                    "professor": "bruno.costa@docente.unip.org.br"
+                }
+            ],
+            "6": [
+                {
+                    "nome": "DevOps",
+                    "aulas": 10,
+                    "professor": "carolina.monteiro@docente.unip.org.br"
+                },
+                {
+                    "nome": "Integração Contínua",
+                    "aulas": 6,
+                    "professor": "diego.silva@docente.unip.org.br"
+                }
+            ],
+            "7": [
+                {
+                    "nome": "Gestão de Requisitos",
+                    "aulas": 10,
+                    "professor": "danilo.siqueira@docente.unip.org.br"
+                }
+            ],
+            "8": [
+                {
+                    "nome": "Trabalho de Conclusão de Curso",
+                    "aulas": 10,
+                    "professor": "elaine.moreira@docente.unip.org.br"
                 }
             ]
         }

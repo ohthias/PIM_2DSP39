@@ -1,14 +1,440 @@
 [
     {
-        "turma": "ADS_2_1",
-        "titulo": "Aulas",
-        "mensagem": "asas",
-        "data": "02/11/2025 16:08"
+        "turma": "Análise e Desenvolvimento de Sistemas-Lógica de Programação-P1",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte o professor Professor (professor@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
     },
     {
-        "turma": "Análise e Desenvolvimento de Sistemas-Lógica de Programação-P1",
-        "titulo": "Aulas",
-        "mensagem": "Inicio das aulas",
-        "data": "08/11/2025 14:45"
+        "turma": "Análise e Desenvolvimento de Sistemas-Matemática Discreta-P1",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte o professor Marcelo Silva (marcelo.silva@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Análise e Desenvolvimento de Sistemas-Banco de Dados-P2",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte o professor Professor (professor@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Análise e Desenvolvimento de Sistemas-Programação Web-P2",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte a professora Ana Lima (ana.lima@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Análise e Desenvolvimento de Sistemas-Engenharia de Software-P3",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte o professor Professor (professor@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Análise e Desenvolvimento de Sistemas-Segurança da Informação-P4",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte o professor Professor (professor@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Ciência da Computação-Algoritmos e Estruturas de Dados-P1",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte a professora Ana Souza (ana.souza@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Ciência da Computação-Introdução à Programação-P1",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte a professora Mariana Rocha (mariana.rocha@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Ciência da Computação-Cálculo Diferencial-P2",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte o professor Bruno Mendes (bruno.mendes@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Ciência da Computação-Matemática Discreta-P2",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte o professor Lucas Pereira (lucas.pereira@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Ciência da Computação-Arquitetura de Computadores-P3",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte a professora Carla Rodrigues (carla.rodrigues@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Ciência da Computação-Estruturas de Dados II-P3",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte o professor Roberto Santos (roberto.santos@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Ciência da Computação-Sistemas Operacionais-P4",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte o professor Diego Alves (diego.alves@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Ciência da Computação-Redes de Computadores-P5",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte a professora Eduarda Lima (eduarda.lima@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Ciência da Computação-Banco de Dados Avançado-P6",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte o professor Felipe Carvalho (felipe.carvalho@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Ciência da Computação-Inteligência Artificial-P7",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte a professora Gabriela Pereira (gabriela.pereira@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Ciência da Computação-Trabalho de Conclusão de Curso-P8",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte o professor Heitor Santos (heitor.santos@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Engenharia de Computação-Cálculo I-P1",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte a professora Irene Motta (irene.motta@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Engenharia de Computação-Física Geral-P2",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte o professor Joao Nunes (joao.nunes@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Engenharia de Computação-Circuitos Digitais-P3",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte a professora Karina Farias (karina.farias@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Engenharia de Computação-Programação Estruturada-P4",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte o professor Leonardo Vieira (leonardo.vieira@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Engenharia de Computação-Algoritmos e Análise-P4",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte o professor Paulo Carneiro (paulo.carneiro@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Engenharia de Computação-Eletrônica Analógica-P5",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte a professora Mariana Torres (mariana.torres@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Engenharia de Computação-Sistemas Embarcados-P6",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte o professor Nicolas Rocha (nicolas.rocha@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Engenharia de Computação-Controle e Automação-P7",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte a professora Olivia Martins (olivia.martins@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Engenharia de Computação-Sistemas Operacionais-P8",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte o professor Pedro Costa (pedro.costa@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Engenharia de Computação-Redes e Comunicações-P9",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte o professor Quintino Almeida (quintino.almeida@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Engenharia de Computação-Projeto de Engenharia-P10",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte a professora Renata Gomes (renata.gomes@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Sistemas de Informação-Análise de Sistemas-P1",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte a professora Silvia Moraes (silvia.moraes@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Sistemas de Informação-Banco de Dados-P2",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte o professor Tiago Martins (tiago.martins@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Sistemas de Informação-Programação Web-P2",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte a professora Leticia Fonseca (leticia.fonseca@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Sistemas de Informação-Engenharia de Software-P3",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte a professora Ursula Silva (ursula.silva@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Sistemas de Informação-Redes de Computadores-P4",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte o professor Vitor Souza (vitor.souza@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Sistemas de Informação-Gestão de Projetos-P5",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte o professor Walter Lima (walter.lima@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Sistemas de Informação-Segurança da Informação-P6",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte a professora Xenia Pereira (xenia.pereira@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Sistemas de Informação-Business Intelligence-P7",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte a professora Yasmin Carneiro (yasmin.carneiro@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Sistemas de Informação-Trabalho de Conclusão de Curso-P8",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte o professor Ze Rodrigues (ze.rodrigues@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Redes de Computadores (Tecnólogo)-Fundamentos de Redes-P1",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte a professora Amanda Luiz (amanda.luiz@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Redes de Computadores (Tecnólogo)-Topologias e Meios de Transmissão-P1",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte a professora Fabiana Mello (fabiana.mello@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Redes de Computadores (Tecnólogo)-Interconexão de Redes-P2",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte o professor Bruno Leite (bruno.leite@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Redes de Computadores (Tecnólogo)-Segurança de Redes-P3",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte a professora Camila Santos (camila.santos@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Redes de Computadores (Tecnólogo)-Administração de Redes-P4",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte o professor Diego Pinto (diego.pinto@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Segurança da Informação-Criptografia-P1",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte a professora Eloisa Fernandes (eloisa.fernandes@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Segurança da Informação-Segurança em Redes-P2",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte o professor Fabio Goncalves (fabio.goncalves@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Segurança da Informação-Gestão de Segurança da Informação-P3",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte a professora Gisele Amaral (gisele.amaral@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Segurança da Informação-Criptografia Aplicada-P3",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte o professor Henrique Souza (henrique.souza@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Segurança da Informação-Análise de Riscos-P4",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte o professor Hugo Barros (hugo.barros@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Segurança da Informação-Forense Computacional-P5",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte a professora Isabela Castro (isabela.castro@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Segurança da Informação-Políticas e Compliance-P6",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte a professora Joana Felix (joana.felix@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Segurança da Informação-Segurança de Aplicações-P7",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte o professor Kleber Rodrigues (kleber.rodrigues@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Segurança da Informação-Trabalho de Conclusão de Curso-P8",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte a professora Lucia Pereira (lucia.pereira@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Inteligência Artificial (Tecnólogo)-Introdução à IA-P1",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte o professor Mateus Almeida (mateus.almeida@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Inteligência Artificial (Tecnólogo)-Aprendizado de Máquina-P2",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte a professora Natasha Oliveira (natasha.oliveira@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Inteligência Artificial (Tecnólogo)-Processamento de Linguagem Natural-P3",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte o professor Otavio Sousa (otavio.sousa@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Inteligência Artificial (Tecnólogo)-Projeto de IA-P4",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte a professora Patricia Mendes (patricia.mendes@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Ciência de Dados-Estatística-P1",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte a professora Rafaela Vieira (rafaela.vieira@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Ciência de Dados-Probabilidade-P2",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte o professor Samuel Cunha (samuel.cunha@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Ciência de Dados-Programação para Data Science-P3",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte a professora Tatiana Lopes (tatiana.lopes@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Ciência de Dados-Banco de Dados para Data Science-P4",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte o professor Ugo Machado (ugo.machado@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Ciência de Dados-Machine Learning-P5",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte a professora Valentina Silveira (valentina.silveira@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Ciência de Dados-Projeto de Data Science-P6",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte o professor William Nascimento (william.nascimento@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Engenharia de Software-Modelagem UML-P1",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte o professor Xavier Silva (xavier.silva@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Engenharia de Software-Processos de Software-P2",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte o professor Yago Cardoso (yago.cardoso@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Engenharia de Software-Arquitetura de Software-P3",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte a professora Zuleica Pinto (zuleica.pinto@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Engenharia de Software-Testes de Software-P4",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte a professora Analu Freitas (analu.freitas@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Engenharia de Software-Manutenção de Software-P5",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte o professor Bruno Costa (bruno.costa@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Engenharia de Software-DevOps-P6",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte a professora Carolina Monteiro (carolina.monteiro@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Engenharia de Software-Integração Contínua-P6",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte o professor Diego Silva (diego.silva@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Engenharia de Software-Gestão de Requisitos-P7",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte o professor Danilo Siqueira (danilo.siqueira@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Engenharia de Software-Trabalho de Conclusão de Curso-P8",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte a professora Elaine Moreira (elaine.moreira@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Redes de Computadores (Tecnólogo)-Topologias e Meios de Transmissão-P1",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte a professora Fabiana Mello (fabiana.mello@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Engenharia de Software-Trabalho de Conclusão de Curso-P8",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte a professora Elaine Moreira (elaine.moreira@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
+    },
+    {
+        "turma": "Engenharia de Software-Trabalho de Conclusão de Curso-P8",
+        "titulo": "Aviso",
+        "mensagem": "Materiais e cronograma atualizados. Consulte a professora Elaine Moreira (elaine.moreira@docente.unip.org.br).",
+        "data": "09/11/2025 09:00"
     }
 ]
