@@ -1,0 +1,120 @@
+:root {
+  --primary-color: #fff200;
+  --secondary-color: #0d1f3c;
+  --accent-color: #1e3a8a;
+  --text-dark: #121212;
+  --text-light: #ffffff;
+  --nav-bg: #0d1f3c;
+  --branco: #ffffff;
+  --cinza-claro: #f8f9fa;
+  --cinza-medio: #e9ecef;
+  --cinza-escuro: #6b7280;
+  --transition: 0.3s ease;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--cinza-claro);
+  margin: 0;
+}
+
+/* Header */
+.header {
+  background-color: var(--secondary-color);
+  color: var(--branco);
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px var(--cinza-escuro);
+  color: var(--branco);
+}
+
+.header a {
+  color: var(--branco);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: background-color var(--transition);
+}
+
+.header a:hover {
+  background-color: var(--accent-color);
+}
+
+/* Container principal */
+.container {
+  padding: 20px 40px;
+}
+
+.nav-tabs .nav-link {
+  background-color: var(--cinza-medio);
+  color: var(--text-dark);
+  border: none;
+  margin-right: 5px;
+  border-radius: 6px 6px 0 0;
+}
+
+.nav-tabs .nav-link.active {
+  background-color: var(--branco);
+  color: var(--secondary-color);
+  border-bottom: 3px solid var(--secondary-color);
+}
+
+.tab-content {
+  background-color: var(--branco);
+  padding: 20px;
+  border-radius: 0 6px 6px 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: -1px;
+}
+
+.card-turma {
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: 0.2s;
+  padding: 15px;
+  margin-bottom: 20px;
+  background-color: var(--branco);
+}
+
+.card-turma:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card-turma h5 {
+  margin: 0;
+  color: var(--secondary-color);
+}
+
+.card-turma p {
+  margin: 5px 0 0 0;
+  color: var(--cinza-escuro);
+}
+
+.btn-download {
+  background-color: var(--secondary-color);
+  color: var(--branco); ;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 8px;
+}
+
+.btn-download:hover {
+  background-color: var(--accent-color);
+}

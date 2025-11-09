@@ -71,7 +71,7 @@ def register():
 
             # Cria estrutura de notas por matéria
             notas = {
-                (m["nome"] if isinstance(m, dict) else m): {"NP1": None, "NP2": None}
+                (m["nome"] if isinstance(m, dict) else m): {"NP1": 0, "NP2": 0}
                 for m in materias_periodo
             }
 

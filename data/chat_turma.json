@@ -23,5 +23,17 @@
                 ]
             }
         ]
+    },
+    {
+        "turma": "Análise e Desenvolvimento de Sistemas-Lógica de Programação-P1",
+        "mensagens": [
+            {
+                "id": 1762724362348,
+                "usuario": "Aluno 1",
+                "texto": "Alguém entendeu a 4?",
+                "timestamp": "09/11/2025 21:39",
+                "respostas": []
+            }
+        ]
     }
 ]
