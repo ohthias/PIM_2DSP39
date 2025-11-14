@@ -36,7 +36,6 @@ def chatbot():
     """Renderiza a interface do chatbot."""
     return render_template('chatbot.html')
 
-
 @ai_blueprint.route('/chat', methods=['POST'])
 def chat():
     """Recebe a mensagem do usuário, interage com o Gemini e retorna a resposta."""
@@ -54,18 +53,43 @@ def chat():
     if not user_message:
         return jsonify({"response": "Por favor, digite uma pergunta."}), 400
 
-    # Inicializa histórico do usuário se não existir
-    if 'chat_sessions' not in session:
-        session['chat_sessions'] = {}
+    # Criar estrutura JSON serializable para o histórico
+    def normalize_history(raw_history):
+        normalized = []
+        for msg in raw_history:
+            normalized.append({
+                "role": msg.role,
+                "parts": [str(p) for p in msg.parts]   # CONVERTE PARTS → TEXTO
+            })
+        return normalized
 
-    if user_email not in session['chat_sessions']:
-        session['chat_sessions'][user_email] = model.start_chat(history=[])
+    # 1. Criar estrutura base
+    if 'chat_histories' not in session:
+        session['chat_histories'] = {}
 
-    chat_session = session['chat_sessions'][user_email]
+    if user_email not in session['chat_histories']:
+        session['chat_histories'][user_email] = []
+
+    # 2. Recupera histórico serializável
+    user_history = session['chat_histories'][user_email]
 
     try:
+        # 3. Inicia a sessão com histórico NORMALIZADO
+        chat_session = model.start_chat(history=[
+            {"role": h["role"], "parts": h["parts"]} for h in user_history
+        ])
+        
+        # 4. Envia a mensagem
         response = chat_session.send_message(user_message)
+
+        # 5. Normaliza o novo histórico antes de salvar
+        new_history = normalize_history(chat_session.history)
+
+        session['chat_histories'][user_email] = new_history
+        session.modified = True
+
         return jsonify({"response": response.text})
+    
     except Exception as e:
         print(f"Erro ao interagir com o Gemini: {e}")
         return jsonify({"response": "Desculpe, ocorreu um erro ao processar sua solicitação."}), 500
