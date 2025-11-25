@@ -1067,5 +1067,26 @@
                 "NP2": 0
             }
         }
+    },
+    {
+        "fullname": "Khawam Sousa",
+        "email": "khawam.sousa@aluno.intec",
+        "password": "scrypt:32768:8:1$KEtzhlVV1pyWzoAh$c6e789932de090421c4c46cea39c15e621bc30e9157ce2f717456b2cde661c1e4b033f97a796bf1551a19d67cfa355d03db54884513591b362a1f798f7cd08f2",
+        "role": "student",
+        "curso": "Análise e Desenvolvimento de Sistemas",
+        "periodo_atual": 1,
+        "matricula": "AN1931",
+        "notas": {
+            "Lógica de Programação": {
+                "NP1": 0,
+                "NP2": 0,
+                "media": 0.0
+            },
+            "Matemática Discreta": {
+                "NP1": 0,
+                "NP2": 0,
+                "media": 0.0
+            }
+        }
     }
 ]

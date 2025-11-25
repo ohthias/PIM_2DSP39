@@ -155,7 +155,19 @@ def dashboard():
         periodo = current_user.get("periodo_atual")
         matricula = current_user.get("matricula")
         notas = current_user.get("notas", {})
-        
+
+        # Calcula média automaticamente se não existir
+        for materia, valores in notas.items():
+            np1 = valores.get("NP1", 0)
+            np2 = valores.get("NP2", 0)
+
+            if "media" not in valores:
+                media = (np1 * pesos["NP1"]) + (np2 * pesos["NP2"])
+                valores["media"] = round(media, 2)
+
+        current_user["notas"] = notas
+        save_users(users)
+
         return render_template(
             "dashboard_student.html",
             user=user,
