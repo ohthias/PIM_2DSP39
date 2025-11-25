@@ -172,19 +172,33 @@
           <table class="table table-striped">
             <thead>
               <tr>
-                <th>Turma</th>
-                <th>NP1</th>
-                <th>NP2</th>
-                <th>Média</th>
+          <th>Turma</th>
+          <th>NP1</th>
+          <th>NP2</th>
+          <th>Média</th>
+          <th>Situação</th>
               </tr>
             </thead>
             <tbody>
               {% for turma, valores in notas.items() %}
               <tr>
-                <td>{{ turma }}</td>
-                <td>{{ valores.NP1 }}</td>
-                <td>{{ valores.NP2 }}</td>
-                <td>{{ valores.media }}</td>
+          <td>{{ turma }}</td>
+          <td>{{ valores.NP1 }}</td>
+          <td>{{ valores.NP2 }}</td>
+          <td>{{ valores.media }}</td>
+          <td>
+            {% if valores.media is not none %}
+              {% if valores.media >= 7 %}
+                <span class="badge bg-success">Aprovado</span>
+              {% elif valores.media >= 4 %}
+                <span class="badge bg-warning text-dark">Exame</span>
+              {% else %}
+                <span class="badge bg-danger">Reprovado</span>
+              {% endif %}
+            {% else %}
+              -
+            {% endif %}
+          </td>
               </tr>
               {% endfor %}
             </tbody>

@@ -22,8 +22,9 @@ USERS_FILE = "data/users.json"
 AVISOS_FILE = "data/avisos.json"
 CHAT_TURMA_FILE = "data/chat_turma.json"
 CURSOS_FILE = "data/cursos.json"
-DIARIO_FILE = "data/diario.json"
-
+DIARIO_FILE = "data/diario_turma.json"
+UPLOAD_FOLDER = "static/materiais"
+MATERIAIS_FILE = "data/materiais.json"
 
 # ===============================
 # Funções genéricas de leitura e gravação

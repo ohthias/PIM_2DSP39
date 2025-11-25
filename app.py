@@ -226,7 +226,7 @@ def turma(nome):
     materiais_turma = [m for m in materiais if m["turma"] == turma["nome"]]
 
     # Avisos da turma
-    avisos = load_json("avisos.json")
+    avisos = load_json(AVISOS_FILE)
     avisos_turma = [a for a in avisos if a["turma"] == turma["nome"]]
     avisos_turma = sorted(avisos_turma, key=lambda x: x["data"], reverse=True)
 
